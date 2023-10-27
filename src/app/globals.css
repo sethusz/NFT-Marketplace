@@ -3,5 +3,6 @@
 @tailwind utilities;
 
 body {
-  @apply bg-[#2B2B2B] w-[1280px]  h-[100vh];
+  @apply bg-[#2B2B2B] max-w-[1920px] m-auto;
+
 }

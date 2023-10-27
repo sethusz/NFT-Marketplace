@@ -10,7 +10,7 @@ type Props = {
 
 const Button = ({title, styles, icon}: Props) => {
 
-    const baseStyles = `flex items-center justify-center gap-3 rounded-2xl  ${styles}`
+    const baseStyles = `flex items-center justify-center gap-3 rounded-[20px]   ${styles}`
 
   return (
     <button className={baseStyles}>

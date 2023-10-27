@@ -1,3 +1,5 @@
+import Layout from "@/components/PageLayout";
+
 export default function MarketPlacePage() {
-    return <div>NFT Page</div>
+    return <Layout title="Marketplace" description="pretty good">NFT Page</Layout>
   }

@@ -25,13 +25,13 @@ const TheHeader = (props: Props) => {
 				/>
 				<h3 className='text-white'>NFT Marketplace</h3>
 			</div>
-			<div className='flex gap-[10px]'>
+			<div className='flex gap-[10px] items-center'>
                 {linksArr.map(el => (
                     <Link href={el.src} className='px-[20px] py-[12px] font-semibold text-white'>
                         {el.title}
                     </Link>
                 ))}
-                <Button title='Sign Up' icon={logoUser} styles='bg-[#A259FF] p-2'/>
+                <Button title='Sign Up' icon={logoUser} styles='bg-[#A259FF] py-[20px] px-[30px]'/>
             </div>
 		</header>
 	);

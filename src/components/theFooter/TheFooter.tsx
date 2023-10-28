@@ -19,7 +19,7 @@ const TheFooter = (props: Props) => {
   border-transparent transition-colors text-white font-semibold hover:text-black hover:bg-white hover:border-[#A259FF]`;
 
 	return (
-		<footer className='text-[#CCC] font-mono'>
+		<footer className='text-[#CCC] font-mono mt-[40px]'>
 			<div className='flex gap-20 justify-center'>
 				<ul className='flex flex-col gap-2'>
 					<li className='flex items-center'>

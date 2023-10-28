@@ -1,17 +1,13 @@
-
+import HeroSection from "./components/heroSection";
+import TopCreators from "./components/topCreators";
+import TrendingCollection from "./components/trendingCollection";
 
 export default function HomePage() {
 	return (
-		<div className="">HomePage</div>
-// 		<Layout title='Market'>
-// 			{/* <TheHeader />
-// 			<main className='flex flex-1 h-[100vh]'></main> */}
-			
-// {/* {Array(25).fill('').map((el) => (
-// 	<div className="">asdasd</div>
-// ))} */}
-// {/* 
-// 			<TheFooter /> */}
-// 		</Layout>
+		<div className="flex flex-col gap-[80px] ">
+			<HeroSection/>
+			<TrendingCollection />
+			<TopCreators />
+		</div>
 	);
 }

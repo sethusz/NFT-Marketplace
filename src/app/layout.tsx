@@ -17,7 +17,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 		<html lang='en'>
 			<body className={spaceMono.className}>
 				<TheHeader />
-				<main className='flex flex-1 h-[100vh]'>{children}</main>
+				{/* <div className='mx-[115px]'>{children}</div> */}
+				<div className='flex justify-center'>{children}</div>
 				<TheFooter />
 			</body>
 		</html>

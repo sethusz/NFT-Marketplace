@@ -1,28 +1,29 @@
 import Image from 'next/image';
 import imgNft from '@/assets/imgNft.png';
 import iconAvatar from '@/assets/icon/iconAvatar.svg';
+import { NFT } from '@/app/(routes)/home/type/trendingType';
 
-const NFT_DATA = [
+const NFT_DATA: NFT[] = [
   {
     title: 'DSGN Animals',
     artistName: 'Name Artist',
     likesCount: 1025,
-    imageAvatar: iconAvatar,
-    imageNft: imgNft,
+    imageAvatar: iconAvatar.src,
+    imageNft: imgNft.src,
   },
   {
     title: 'DSGN Animals',
     artistName: 'Name Artist',
     likesCount: 1025,
-    imageAvatar: iconAvatar,
-    imageNft: imgNft,
+    imageAvatar: iconAvatar.src,
+    imageNft: imgNft.src,
   },
   {
     title: 'DSGN Animals',
     artistName: 'Name Artist',
     likesCount: 1025,
-    imageAvatar: iconAvatar,
-    imageNft: imgNft,
+    imageAvatar: iconAvatar.src,
+    imageNft: imgNft.src,
   },
 ];
 

@@ -2,9 +2,10 @@ import Button from "@/components/Button";
 import logoRocket from '@/assets/icon/logoRocket.svg'
 import Image from 'next/image'
 import bigAvatar from '@/assets/icon/bigAvatar.svg'
+import { CREATOR } from "../type/topCreatorsType";
 
 export default function TopCreators() {
-  const CREATOR_DATA = [
+  const CREATOR_DATA: CREATOR[] = [
     {
       totalSales: 35,
       creatorName: 'Name creator',

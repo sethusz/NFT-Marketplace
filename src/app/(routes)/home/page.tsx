@@ -1,4 +1,6 @@
+import BrowseCategories from "./components/browseCategories";
 import HeroSection from "./components/heroSection";
+import Highlight from "./components/highlight";
 import TopCreators from "./components/topCreators";
 import TrendingCollection from "./components/trendingCollection";
 
@@ -8,6 +10,8 @@ export default function HomePage() {
 			<HeroSection/>
 			<TrendingCollection />
 			<TopCreators />
+			<BrowseCategories />
+			<Highlight />
 		</div>
 	);
 }

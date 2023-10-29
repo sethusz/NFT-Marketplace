@@ -4,7 +4,6 @@ import Image from 'next/image'
 import bigAvatar from '@/assets/icon/bigAvatar.svg'
 import { CREATOR } from "../type/topCreatorsType";
 
-export default function TopCreators() {
   const CREATOR_DATA: CREATOR[] = [
     {
       totalSales: 35,
@@ -84,8 +83,11 @@ export default function TopCreators() {
       numberCreator: 12,
       imageAvatar: bigAvatar,
     },
-
   ];
+
+  
+export default function TopCreators() {
+
   return (
     <>
       <div className="text-white">

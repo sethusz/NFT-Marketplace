@@ -14,7 +14,7 @@ const TheHeader = (props: Props) => {
 	];
 
 	return (
-		<header className='flex justify-between mx-12 mt-2'>
+		<header className='flex justify-between mx-12 mt-2 mb-[40px]'>
 			<div className='flex items-center justify-center'>
 				<Image
 					src={logo}

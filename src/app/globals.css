@@ -8,5 +8,20 @@ body {
 }
 
 body::-webkit-scrollbar {
-	width: 0px;
+  width: 10px;
 }
+
+body::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 100px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 100px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+

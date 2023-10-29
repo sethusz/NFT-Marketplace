@@ -16,46 +16,47 @@ import imgVideo from '@/assets/imgCategories/imgVideo.png'
 import imgWorlds from '@/assets/imgCategories/imgWorlds.png'
 
 import Image from 'next/image'
+import { CATEGORIES } from '../type/homeTypes'
 
-const CATEGORIES_DATA = [
+const CATEGORIES_DATA: CATEGORIES[] = [
   {
     name: 'Art',
-    img: imgArt,
+    img: imgArt.src,
     icon: iconArt
   },
   {
     name: 'Collectibles',
-    img: imgCollectibles,
+    img: imgCollectibles.src,
     icon: iconCollectibles
   },
   {
     name: 'Music',
-    img: imgMusic,
+    img: imgMusic.src,
     icon: iconMusic
   },
   {
     name: 'Photography',
-    img: imgPhotography,
+    img: imgPhotography.src,
     icon: iconPhotography
   },
   {
     name: 'Video',
-    img: imgVideo,
+    img: imgVideo.src,
     icon: iconVideo
   },
   {
     name: 'Utility',
-    img: imgUtility,
+    img: imgUtility.src,
     icon: iconUtility
   },
   {
     name: 'Sport',
-    img: imgSport,
+    img: imgSport.src,
     icon: iconSport
   },
   {
     name: 'Virtual Worlds',
-    img: imgWorlds,
+    img: imgWorlds.src,
     icon: iconWorlds
   },
 ];
@@ -64,14 +65,14 @@ export default function BrowseCategories() {
   return (
     <>
       <div className='text-white'>
-        <h1 className='font-bold mb-[20px]'>Browse Categories</h1>
+        <h1 className='font-bold mb-[20px] text-4xl'>Browse Categories</h1>
 
         <div>
           <div>
-            <div className='grid grid-cols-4 gap-3'>
+            <div className='grid grid-cols-4 gap-6'>
               {CATEGORIES_DATA.map((categories, index) => (
                 <>
-                  <div className="flex items-center">
+                  <div className="flex items-center hover:cursor-pointer hover:scale-[1.05]  transition-transform">
                     <div className="relative">
                       <Image src={categories.img} alt="art" width={240} height={240} className="blur-sm" />
                       <Image src={categories.icon} alt="art" width={100} height={100} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />

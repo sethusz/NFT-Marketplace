@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import imgNft from '@/assets/imgNft.png';
 import iconAvatar from '@/assets/icon/iconAvatar.svg';
-import { NFT } from '@/app/(routes)/home/type/trendingType';
+import { NFT } from '@/app/(routes)/home/type/homeTypes';
 
 const NFT_DATA: NFT[] = [
   {
@@ -32,7 +32,7 @@ export default function TrendingCollection() {
     <>
       <div className='text-white'>
         <div>
-          <h1 className='font-bold'>Trending Collection</h1>
+          <h1 className='font-bold text-4xl'>Trending Collection</h1>
           <h3>Checkout our weekly updated trending collection.</h3>
         </div>
 

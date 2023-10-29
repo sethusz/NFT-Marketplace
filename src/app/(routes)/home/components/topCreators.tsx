@@ -2,7 +2,7 @@ import Button from "@/components/Button";
 import logoRocket from '@/assets/icon/logoRocket.svg'
 import Image from 'next/image'
 import bigAvatar from '@/assets/icon/bigAvatar.svg'
-import { CREATOR } from "../type/topCreatorsType";
+import { CREATOR } from "../type/homeTypes";
 
   const CREATOR_DATA: CREATOR[] = [
     {
@@ -93,16 +93,17 @@ export default function TopCreators() {
       <div className="text-white">
 
         <div>
-          <h1 className="font-bold mb-[15px]">Top Creators</h1>
+          <h1 className="font-bold mb-[15px] text-4xl">Top Creators</h1>
           <div className="flex justify-between">
             <div>Checkout Top Rated Creators on the NFT Marketplace </div>
             <Button title="View Rankings" icon={logoRocket} styles="border-2 border-[#A259FF] w-[247px] h-[60px] " />
           </div>
         </div>
 
-        <div className="grid grid-cols-4 gap-3 mt-[60px]">
+        <div className="grid grid-cols-4 gap-5 mt-[60px]">
           {CREATOR_DATA.map((creator, index) => (
-            <div key={index} className="flex justify-center items-center bg-[#3B3B3B] w-[240px] h-[240px] rounded-2xl">
+            <div key={index} className="flex justify-center items-center bg-[#3B3B3B] w-[240px] h-[240px] rounded-2xl
+                                        hover:cursor-pointer hover:scale-[1.05]  transition-transform">
               <div className="absolute bg-[#2B2B2B] w-[30px] h-[30px] text-[#858584] text-center rounded-3xl mr-[180px] mb-[180px]">
                 {creator.numberCreator}
               </div>

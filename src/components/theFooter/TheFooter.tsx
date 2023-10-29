@@ -1,4 +1,5 @@
 'use client'
+import { useState } from 'react';
 
 import Image from 'next/image';
 import logo from '@/assets/icon/logoHeader.svg';
@@ -6,7 +7,7 @@ import discrordLogo from '@/assets/icon/DiscordLogo.svg';
 import instagramLogo from '@/assets/icon/InstagramLogo.svg';
 import twitterLogo from '@/assets/icon/TwitterLogo.svg';
 import youtubeLogo from '@/assets/icon/YoutubeLogo.svg';
-import { useState } from 'react';
+import EmailSubscribe from '../emailSubscribe';
 
 type Props = {};
 
@@ -19,7 +20,7 @@ const TheFooter = (props: Props) => {
   border-transparent transition-colors text-white font-semibold hover:text-black hover:bg-white hover:border-[#A259FF]`;
 
 	return (
-		<footer className='text-[#CCC] font-mono mt-[40px]'>
+		<footer className='text-[#CCC] font-mono mt-[40px] bg-[#3B3B3B] p-[30px]'>
 			<div className='flex gap-20 justify-center'>
 				<ul className='flex flex-col gap-2'>
 					<li className='flex items-center'>
@@ -32,7 +33,7 @@ const TheFooter = (props: Props) => {
 						/>
 						<h3 className='text-white font-bold'>NFT Marketplace</h3>
 					</li>
-					<li>NFT marketplace UI created with Anima for Figma.</li>
+					<li className='w-[237px]'>NFT marketplace UI created with Anima for Figma.</li>
 					<li>Join our community</li>
 					<li className='flex gap-1'>
 						<Image
@@ -74,20 +75,7 @@ const TheFooter = (props: Props) => {
 						Get exclusive promotions & updates straight to your inbox.
 					</li>
 					<li>
-						<div className='flex rounded-[20px] items-center bg-white justify-between'>
-							<input
-								type='text'
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-								placeholder='Enter your email here'
-								className='bg-transparent p-[15px] outline-none text-black placeholder:text-black'
-							/>
-							<button
-								className={buttonStyles}
-							>
-								Subscribe
-							</button>
-						</div>
+					<EmailSubscribe />
 					</li>
 				</ul>
 			</div>

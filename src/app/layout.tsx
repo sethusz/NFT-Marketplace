@@ -14,11 +14,13 @@ export const metadata: Metadata = {
 
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+
+	
+
 	return (
 		<html lang='en'>
 			<body className={`${spaceMono.className}, ${workSans.className}`}>
 				<TheHeader />
-				{/* <div className='mx-[115px]'>{children}</div> */}
 				<div className='flex justify-center'>{children}</div>
 				<TheFooter />
 			</body>

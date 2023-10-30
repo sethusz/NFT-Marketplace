@@ -3,16 +3,20 @@ import Image from 'next/image';
 
 import NFTGlobe from '@/assets/icon/NFTGlobe.svg';
 import { TNft } from '../../types/nftTypes';
+import Auction from './Auction';
 
 const DataSection = ({ title, date, user, description, links, tags }: TNft) => {
 	return (
-		<div className='flex flex-col gap-7 text-[22px] max-w-[605px]'>
-			<div className=''>
+		<div className='flex flex-col gap-7 lg:text-[22px] md:text-[16px]  lg:max-w-[605px] md:max-w-[365px]'>
+			<div>
 				<h2 className='text-[2.3em] font-semibold text-white mb-2'>{title}</h2>
 				<p className=' text-[1em] text-textGray font-normal'>Minted on {date}</p>
 			</div>
-			<div className=''>
-				<h6 className='font-bold text-textGray text-[1em]'>Created By</h6>
+			<div className=' block sm:hidden'>
+				<Auction />
+			</div>
+			<div>
+				<h6 className='font-bold text-textGray text-[1em] mb-2'>Created By</h6>
 				<div className='flex items-center gap-3'>
 					<Image
 						src={user.img}
@@ -26,7 +30,12 @@ const DataSection = ({ title, date, user, description, links, tags }: TNft) => {
 				<h6 className='text-[1em] text-textGray font-bold'>Description</h6>
 				<div className='flex flex-col gap-7'>
 					{description.map((description, i) => (
-						<p className='text-[1em] text-white' key={i}>{description}</p>
+						<p
+							className='text-[1em] text-white'
+							key={i}
+						>
+							{description}
+						</p>
 					))}
 				</div>
 			</div>
@@ -65,11 +74,16 @@ const DataSection = ({ title, date, user, description, links, tags }: TNft) => {
 			</div>
 			<div className='flex flex-col gap-4'>
 				<h6 className='text-[1em] text-textGray font-bold'>Tags</h6>
-				<div className='flex gap-5'>
-                    {tags.map((tag, i) => (
-                        <div className="text-[.7em] text-white bg-[#3B3B3B] rounded-[20px] px-[30px] py-3 font-semibold" key={i}>{tag}</div>
-                    ))}
-                </div>
+				<div className='flex gap-5 flex-wrap'>
+					{tags.map((tag, i) => (
+						<div
+							className='text-[.7em] text-white bg-[#3B3B3B] rounded-[20px] px-[30px] py-3 font-semibold'
+							key={i}
+						>
+							{tag}
+						</div>
+					))}
+				</div>
 			</div>
 		</div>
 	);

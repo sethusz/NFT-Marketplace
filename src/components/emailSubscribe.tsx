@@ -10,7 +10,7 @@ const EmailSubscribe = () => {
   border-transparent transition-colors text-white font-semibold hover:text-black hover:bg-white hover:border-[#A259FF]`;
 
   return (
-    <div className='flex text-center rounded-[20px] items-center bg-white justify-between'>
+    <div className='flex text-center rounded-[20px] items-center bg-white justify-between text-sm md:text-base'>
       <input
         type='text'
         value={email}

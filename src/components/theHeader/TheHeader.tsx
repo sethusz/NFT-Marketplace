@@ -1,20 +1,17 @@
+'use client';
+
 import Image from 'next/image';
 import logo from '@/assets/icon/logoHeader.svg';
-import Link from 'next/link';
-import Button from '../Button';
-import logoUser from '@/assets/icon/logoUser.svg'
+import { useWindowSize } from '@/hooks/useWindowSize';
+import Adaptive from './Adaptive';
+import Default from './Default';
 
 type Props = {};
 
 const TheHeader = (props: Props) => {
-	const linksArr = [
-		{ title: 'Marketplace', src: '/marketplace' },
-		{ title: 'Rankings', src: '/ranking' },
-		{ title: 'Artist', src: '/artist' },
-	];
-
+	const { width: windowWidth } = useWindowSize();
 	return (
-		<header className='flex justify-between mx-12 mt-2 mb-[40px]'>
+		<header className='flex w-full justify-between  items-center px-6 py-4 md:px-12 md:py-6'>
 			<div className='flex items-center justify-center'>
 				<Image
 					src={logo}
@@ -25,14 +22,9 @@ const TheHeader = (props: Props) => {
 				/>
 				<h3 className='text-white'>NFT Marketplace</h3>
 			</div>
-			<div className='flex gap-[10px] items-center'>
-                {linksArr.map(el => (
-                    <Link href={el.src} className='px-[20px] py-[12px] font-semibold text-white'>
-                        {el.title}
-                    </Link>
-                ))}
-                <Button title='Sign Up' icon={logoUser} styles='bg-[#A259FF] py-[20px] px-[30px]'/>
-            </div>
+			<nav className='flex gap-[10px] items-center'>
+				{windowWidth <= 840 ? <Adaptive /> : <Default />}
+			</nav>
 		</header>
 	);
 };

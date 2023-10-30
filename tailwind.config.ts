@@ -16,6 +16,10 @@ const config: Config = {
       colors: {
         textGray: '#858584'
 			},
+      screens: {
+				IM: '361px', // Iphone Mini \ Android
+				FE: '800px' // screen for mid size
+			},
     },
   },
   plugins: [],

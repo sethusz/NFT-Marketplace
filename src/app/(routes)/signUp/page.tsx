@@ -22,7 +22,6 @@ export default function HomePage() {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    // Добавьте здесь логику для обработки отправки формы, например, отправку данных на сервер или валидацию.
   };
 
   return (

@@ -7,7 +7,7 @@ import DataSection from './DataSection';
 import Button from '@/components/Button';
 
 import arrowIcon from '@/assets/icon/NFTArrowIcon.svg';
-import CardFromOther from './CardFromOther';
+import CardFromOther from '@/components/NFTFromOthers';
 import { TNft } from '../../types/nftTypes';
 
 type Props = {};

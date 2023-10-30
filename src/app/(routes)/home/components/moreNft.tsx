@@ -1,39 +1,10 @@
-import Image from 'next/image'
 import Button from '@/components/Button';
 import iconEye from '@/assets/icon/iconEye.svg'
-import logoUser from '@/assets/icon/logoUser.svg'
-import imageNFT from '@/assets/nftPlaceholder.jpg'
-import { MORENFT } from '../type/homeTypes';
+import { MockNFTData } from '../../nft/data/mockNft';
+import CardFromOther from '@/components/NFTFromOthers';
+import { TNft } from '../../nft/types/nftTypes';
 
 export default function MoreNft() {
-
-
-  const MORENFT_DATA:MORENFT[] = [
-    {
-      title: 'Distant Galaxy',
-      imageNFT: imageNFT.src,
-      logoUser: logoUser,
-      userName: 'MoonDancer',
-      priceETH: '0.333',
-      pricewETH: '0.333'
-    },
-    {
-      title: 'Distant Galaxy',
-      imageNFT: imageNFT.src,
-      logoUser: logoUser,
-      userName: 'MoonDancer',
-      priceETH: '0.333',
-      pricewETH: '0.333'
-    },
-    {
-      title: 'Distant Galaxy',
-      imageNFT: imageNFT.src,
-      logoUser: logoUser,
-      userName: 'MoonDancer',
-      priceETH: '0.333',
-      pricewETH: '0.333'
-    },
-  ]
 
   return (
 
@@ -48,7 +19,18 @@ export default function MoreNft() {
       </div>
 
       <div className='flex gap-[30px] rounded-[20px] w-fit mt-[20px]'>
-        {MORENFT_DATA.map((moreNft, index) => (
+      {Array(3)
+						.fill(MockNFTData)
+						.map((el: TNft, i) => (
+							<CardFromOther
+								title={el.title}
+								img={el.img}
+								user={el.user}
+								price={el.price}
+								highest_bid={el.highest_bid}
+								key={i}
+							/>
+						))}        {/* {MORENFT_DATA.map((moreNft, index) => (
           <div className='hover:cursor-pointer hover:scale-[1.05]  transition-transform'>
             <Image src={moreNft.imageNFT} alt='nft image' width={330} height={295} className='object-cover rounded-t-[20px]' />
 
@@ -75,7 +57,7 @@ export default function MoreNft() {
             
           </div>
           
-        ))}
+        ))} */}
         {/*        
               <div className="bg-[#3b3b3b] flex flex-col gap-6 rounded-b-[20px] p-[25px]">
               <Image src={moreNft.imageNFT} alt='nft image' className=' object-cover w-[330px] h-[295px] rounded-t-[20px]' />

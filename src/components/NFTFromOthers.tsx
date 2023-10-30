@@ -1,6 +1,6 @@
 import Image, { StaticImageData } from 'next/image'
 import React from 'react'
-import { TNft } from '../../types/nftTypes'
+import { TNft } from '@/app/(routes)/nft/types/nftTypes'
 
 type Props = {
     img: StaticImageData,

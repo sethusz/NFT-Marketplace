@@ -2,7 +2,9 @@
 import { useState } from 'react';
 import { tabsData } from "../types/artistTypes";
 
-
+import { MockNFTData } from '../../nft/data/mockNft';
+import CardFromOther from '@/components/NFTFromOthers';
+import { TNft } from '../../nft/types/nftTypes';
 
 export default function ArtistNft() {
   const [activeTab, setActiveTab] = useState<number | null>(0);
@@ -44,6 +46,22 @@ export default function ArtistNft() {
             <Tabs key={index} label={data.label} value={data.value} index={index} />
           ))}
         </div>
+        
+        <div className='grid grid-cols-3 gap-[30px] rounded-20  mt-20 '>
+          {Array(9)
+            .fill(MockNFTData)
+            .map((el: TNft, i) => (
+              <CardFromOther
+                title={el.title}
+                img={el.img}
+                user={el.user}
+                price={el.price}
+                highest_bid={el.highest_bid}
+                key={i}
+              />
+            ))}
+        </div>
+
       </div>
     </>
   );

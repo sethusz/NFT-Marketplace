@@ -14,7 +14,8 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       colors: {
-        textGray: '#858584'
+        textGray: '#858584',
+        bgSecondaryGray: '#3B3B3B'
 			},
       screens: {
 				IM: '361px', // Iphone Mini \ Android

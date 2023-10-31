@@ -6,7 +6,7 @@ import logoUser from '@/assets/icon/logoUser.svg';
 
 const Default = () => {
 	const linksArr = [
-		{ title: 'Marketplace', src: '/marketplace' },
+		{ title: 'Marketplace', src: '/marketplace/nfts' },
 		{ title: 'Rankings', src: '/ranking' },
 		{ title: 'Artist', src: '/artist' },
 	];

@@ -16,7 +16,7 @@ export default function ArtistProfile() {
     <>
 
 
-          <div>
+          <div className=''>
             <div className='flex justify-between'>
               <h1 className='text-[51px] font-semibold'>Name Avatar</h1>
               <Button title='Follow' icon={iconPlus} styles='w-[200px] border border-[#A259FF]' />

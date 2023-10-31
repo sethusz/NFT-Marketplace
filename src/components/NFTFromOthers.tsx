@@ -13,7 +13,7 @@ type Props = {
 const CardFromOther = ({img, title, user, price, highest_bid}: Props) => {
   return (
     <div className='flex flex-col rounded-[20px] hover:cursor-pointer hover:scale-[1.05]  transition-transform'>
-        <Image src={img} alt='nft image'  className=' object-cover w-[330px] h-[295px] rounded-t-[20px]'/>
+        <Image src={img} alt='nft image'  className=' object-cover w-fit h-[295px] rounded-t-[20px]'/>
         <div className="bg-[#3b3b3b] flex flex-col gap-6 rounded-b-[20px] p-[25px]">
             <div className="flex flex-col gap-2">
                 <span className=' text-[22px] text-white font-semibold'>{title}</span>

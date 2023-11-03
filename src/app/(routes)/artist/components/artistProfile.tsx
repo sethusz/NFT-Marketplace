@@ -15,11 +15,14 @@ export default function ArtistProfile() {
   return (
     <>
 
-
-          <div className=''>
-            <div className='flex justify-between'>
-              <h1 className='text-[51px] font-semibold'>Name Avatar</h1>
-              <Button title='Follow' icon={iconPlus} styles='w-[200px] border border-[#A259FF]' />
+          <div className='ml-[30px]'>
+            <div className='flex justify-between
+                            max-[800px]:flex-col'>
+              <h1 className='text-[51px] font-semibold
+                            max-[1100px]:text-[38px] max-[600px]:text-[28px]'>Name Avatar</h1>
+              <Button title='Follow' icon={iconPlus} styles='w-[200px] border border-[#A259FF] 
+                                                            max-[800px]:h-[60px] max-[800px]:mb-[30px]
+                                                            max-[600px]:w-[145px] max-[600px]:h-[60px]' />
             </div>
 
 

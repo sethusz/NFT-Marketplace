@@ -9,7 +9,7 @@ import TrendingCollection from "./components/trendingCollection";
 
 export default function HomePage() {
 	return (
-		<div className="flex flex-col gap-[80px] ">
+		<div className="flex flex-col gap-[80px] mb-[40px] max-[1100px]:mx-[50px] max-[1100px]:items-center  ">
 			<HeroSection/>
 			<TrendingCollection />
 			<TopCreators />

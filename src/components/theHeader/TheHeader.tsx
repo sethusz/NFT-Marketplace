@@ -10,9 +10,12 @@ import Link from 'next/link';
 type Props = {};
 
 const TheHeader = (props: Props) => {
+	
 	const { width: windowWidth } = useWindowSize();
+
+
 	return (
-		<header className='flex w-full justify-between  items-center px-6 py-4 md:px-12 md:py-6'>
+		<header className='flex w-full justify-between  items-center px-6 py-4 md:px-12 md:py-6' >
 			<Link href='/' className='flex items-center justify-center'>
 				<Image
 					src={logo}
@@ -21,10 +24,11 @@ const TheHeader = (props: Props) => {
 					height={32}
 					className='mr-3'
 				/>
-				<h3 className='text-white'>NFT Marketplace</h3>
+				<h3 className='text-white text-[28px] font-semibold 
+				              max-[600px]:text-[22px]'>NFT Marketplace</h3>
 			</Link>
 			<nav className='flex gap-[10px] items-center'>
-				{windowWidth <= 840 ? <Adaptive /> : <Default />}
+				{windowWidth <= 1050 ? <Adaptive /> : <Default />}
 			</nav>
 		</header>
 	);

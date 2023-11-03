@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 		<html lang='en'>
 			<body className={`${spaceMono.className}, ${workSans.className}`}>
 				<TheHeader />
-				<div className='flex justify-center'>{children}</div>
+				<div className='flex justify-center text-white'>{children}</div>
 				<TheFooter />
 			</body>
 		</html>

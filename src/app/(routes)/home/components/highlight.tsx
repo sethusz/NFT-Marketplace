@@ -8,7 +8,7 @@ export default function Highlight() {
   return (
     <>
       <div className='flex gap-[30px] justify-between max-[860px]:w-[315px]
-			                max-[600px]:flex-col'>
+			                max-[800px]:flex-col'>
 
         <div className='flex flex-col gap-[30px]'>
               <div className='flex gap-[15px] bg-[#3B3B3B] rounded-3xl pl-[15px] items-center w-[200px] h-[50px]'>

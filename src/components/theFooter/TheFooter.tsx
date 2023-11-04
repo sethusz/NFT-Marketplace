@@ -71,7 +71,7 @@ const TheFooter = (props: Props) => {
 						Get exclusive promotions & updates straight to your inbox.
 					</li>
 					<li className='w-fit'>
-					<EmailSubscribe />
+					<EmailSubscribe/>
 					</li>
 				</ul>
 			</div>

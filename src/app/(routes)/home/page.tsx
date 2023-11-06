@@ -7,17 +7,19 @@ import MoreNft from "./components/moreNft";
 import TopCreators from "./components/topCreators";
 import TrendingCollection from "./components/trendingCollection";
 
-export default function HomePage() {
+function HomePage() {
 	return (
-		<div className="flex flex-col gap-[80px] ">
-			<HeroSection/>
+		<div className="flex flex-col gap-[80px] mb-[40px] max-[1100px]:mx-[50px] max-[1100px]:items-center  ">
+			<HeroSection />
 			<TrendingCollection />
 			<TopCreators />
 			<BrowseCategories />
-			<MoreNft/>
+			<MoreNft />
 			<Highlight />
-			<HowWorks/>
+			<HowWorks />
 			<JoinDigest />
 		</div>
 	);
 }
+
+export default HomePage;

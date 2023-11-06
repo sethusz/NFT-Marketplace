@@ -5,21 +5,21 @@ import { NFT } from '@/app/(routes)/home/type/homeTypes';
 
 const NFT_DATA: NFT[] = [
   {
-    title: 'DSGN Animals',
+    title: 'DSGN Animals1',
     artistName: 'Name Artist',
     likesCount: 1025,
     imageAvatar: iconAvatar.src,
     imageNft: imgNft.src,
   },
   {
-    title: 'DSGN Animals',
+    title: 'DSGN Animals2',
     artistName: 'Name Artist',
     likesCount: 1025,
     imageAvatar: iconAvatar.src,
     imageNft: imgNft.src,
   },
   {
-    title: 'DSGN Animals',
+    title: 'DSGN Animals3',
     artistName: 'Name Artist',
     likesCount: 1025,
     imageAvatar: iconAvatar.src,
@@ -28,17 +28,18 @@ const NFT_DATA: NFT[] = [
 ];
 
 export default function TrendingCollection() {
+
   return (
     <>
-      <div className='text-white'>
+      <div className='max-[860px]:w-[315px]'>
         <div>
-          <h1 className='font-bold text-4xl'>Trending Collection</h1>
-          <h3>Checkout our weekly updated trending collection.</h3>
+          <h1 className='font-bold text-4xl max-[1000px]:text-xl'>Trending Collection</h1>
+          <h3 >Checkout our weekly updated trending collection.</h3>
         </div>
 
-        <div className='flex gap-[30px] justify-center'>
+        <div className='flex flex-wrap gap-[30px] justify-center'>
           {NFT_DATA.map((nft, index) => (
-            <div key={index} className='mt-[60px]'>
+          <div key={index} className={`mt-[60px] ${index === 2 && 'max-[1100px]:hidden'} ${index === 1 && 'max-[800px]:hidden'}`}>
               <Image src={nft.imageNft} alt="nft" width={330} height={330}/>
               <div className='flex mt-[10px] gap-[15px]'>
                 <Image src={nft.imageNft} alt="nft" width={100} height={100} />

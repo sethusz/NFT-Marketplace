@@ -3,88 +3,44 @@ import iconEye from '@/assets/icon/iconEye.svg'
 import { MockNFTData } from '../../nft/data/mockNft';
 import CardFromOther from '@/components/NFTFromOthers';
 import { TNft } from '../../nft/types/nftTypes';
+import Link from 'next/link';
 
 export default function MoreNft() {
 
   return (
 
-    <div className='text-white'>
+    <div className='max-[860px]:w-[315px]'>
 
       <div className=''>
-        <h1 className='font-bold text-4xl mb-[10px]'>Discover More NFTs</h1>
+        <h1 className='font-bold text-4xl mb-[10px]
+                                  max-[700px]:text-2xl'>Discover More NFTs</h1>
         <div className='flex justify-between'>
           <div>Explore new trending NFTs</div>
-          <Button title='See All' icon={iconEye} styles='border border-[#A259FF] w-[187px] h-[60px]' />
+          <Button title='See All' icon={iconEye} styles='border border-[#A259FF] w-[187px] h-[60px]
+                                                        max-[700px]:hidden          ' />
         </div>
       </div>
 
-      <div className='flex gap-[30px] rounded-[20px] w-fit mt-[20px]'>
-      {Array(3)
-						.fill(MockNFTData)
-						.map((el: TNft, i) => (
-							<CardFromOther
-								title={el.title}
-								img={el.img}
-								user={el.user}
-								price={el.price}
-								highest_bid={el.highest_bid}
-								key={i}
-							/>
-						))}        {/* {MORENFT_DATA.map((moreNft, index) => (
-          <div className='hover:cursor-pointer hover:scale-[1.05]  transition-transform'>
-            <Image src={moreNft.imageNFT} alt='nft image' width={330} height={295} className='object-cover rounded-t-[20px]' />
+      <div className='flex flex-wrap justify-center items-center gap-[30px] rounded-[20px] w-fit mt-[20px]'>
 
-            <div className="bg-[#3b3b3b] flex flex-col gap-6 rounded-b-[20px] p-[25px]">
-
-              <div className=" flex flex-col gap-2">
-                <span className=' text-[22px] text-white font-semibold'>{moreNft.title}</span>
-                <div className='flex items-center gap-3'>
-                  <Image src={moreNft.logoUser} width={24} height={24} alt='user image' className='rounded-full' />
-                  <p className='text-[16px] text-white font-normal'>{moreNft.userName}</p>
-                </div>
-              </div>
-              <div className="flex justify-between">
-                  <div className="flex flex-col gap-2">
-                    <span className='text-sm text-textGray font-normal'>Price</span>
-                    <span className='text-base text-white'>{moreNft.priceETH} ETH</span>
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    <span className='text-sm text-textGray font-normal self-end'>Highest Bid</span>
-                    <span className='text-base text-white'>{moreNft.pricewETH} wETH</span>
-                  </div>
-                </div>
-            </div>
-            
-          </div>
-          
-        ))} */}
-        {/*        
-              <div className="bg-[#3b3b3b] flex flex-col gap-6 rounded-b-[20px] p-[25px]">
-              <Image src={moreNft.imageNFT} alt='nft image' className=' object-cover w-[330px] h-[295px] rounded-t-[20px]' />
-                <div className="flex flex-col gap-2">
-                  <span className=' text-[22px] text-white font-semibold'>{moreNft.title}</span>
-                  <div className='flex items-center gap-3'>
-                    <Image
-                      src={moreNft.logoUser}
-                      alt='user image'
-                      className='w-[24px] h-[24px] rounded-full'
-                    />
-                    <p className='text-[16px] text-white font-normal'>{moreNft.userName}</p>
-                  </div>
-                </div>
-                <div className="flex justify-between">
-                  <div className="flex flex-col gap-2">
-                    <span className='text-sm text-textGray font-normal'>Price</span>
-                    <span className='text-base text-white'>{moreNft.priceETH} ETH</span>
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    <span className='text-sm text-textGray font-normal self-end'>Highest Bid</span>
-                    <span className='text-base text-white'>{moreNft.pricewETH} wETH</span>
-                  </div>
-                </div>
-              </div> */}
-        {/* </>
-          ))} */}
+        {Array(3)
+          .fill(MockNFTData)
+          .map((el: TNft, i) => (
+            <>
+            <Link href='/nft'>
+              <CardFromOther
+                title={el.title}
+                img={el.img}
+                user={el.user}
+                price={el.price}
+                highest_bid={el.highest_bid}
+                key={i}
+              />
+            </Link>
+            </>
+          ))}
+        <Button title='See All' icon={iconEye} styles='hidden border border-[#A259FF] w-[330px] h-[60px]
+                                                            max-[700px]:flex' />
       </div>
     </div>
 

@@ -4,7 +4,8 @@
 
 body {
   @apply bg-[#2B2B2B] max-w-[1920px] m-auto;
-
+  margin: 0;
+  color: white;
 }
 
 body::-webkit-scrollbar {

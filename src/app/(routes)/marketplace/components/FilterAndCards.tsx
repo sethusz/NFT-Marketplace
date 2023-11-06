@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 import { MockNFTData } from '../../nft/data/mockNft';
 import { TNft } from '../../nft/types/nftTypes';
-import { useWindowSize } from '@/hooks/useWindowSize';
+import { useWindowSize } from '@/lib/hooks/useWindowSize';
 import CardFromOther from '@/components/NFTFromOthers';
 
 const FilterAndCards = () => {

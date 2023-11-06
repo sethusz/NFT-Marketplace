@@ -65,19 +65,24 @@ export default function BrowseCategories() {
   return (
     <>
       <div className='text-white'>
-        <h1 className='font-bold mb-[20px] text-4xl'>Browse Categories</h1>
+        <h1 className='font-bold mb-[20px] text-4xl
+                                max-[1100px]:text-2xl'>Browse Categories</h1>
 
         <div>
           <div>
-            <div className='grid grid-cols-4 gap-6'>
+            <div className='grid grid-cols-4 gap-6
+            max-[700px]:grid-cols-2'>
               {CATEGORIES_DATA.map((categories, index) => (
                 <>
                   <div className="flex items-center hover:cursor-pointer hover:scale-[1.05]  transition-transform">
-                    <div className="relative">
+                    <div className="relative
+                                    max-[1100px]:w-[150px]">
                       <Image src={categories.img} alt="art" width={240} height={240} className="blur-sm" />
-                      <Image src={categories.icon} alt="art" width={100} height={100} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
+                      <Image src={categories.icon} alt="art" width={100} height={100} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
+                                                                                                  max-[1100px]:top-1/3" />
 
-                      <div className='bg-[#3B3B3B] w-[240px] h-[76px] rounded-b-xl flex items-center'>
+                      <div className='bg-[#3B3B3B] w-[240px] h-[76px] rounded-b-xl flex items-center
+                                        max-[1100px]:w-[150px]'>
                         <div className="ml-[20px]">{categories.name}</div>
                       </div>
                     </div>

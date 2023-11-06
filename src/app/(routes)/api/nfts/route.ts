@@ -15,5 +15,5 @@ export const POST = async (req: NextRequest) => {
 }
 
 export const GET =async (req: NextRequest, res: NextResponse) => {
-    return NextResponse.json({message: 'нема'})
+    return NextResponse.json({message: 'нічого немає'})
 }

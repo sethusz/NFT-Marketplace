@@ -24,17 +24,20 @@ export default function HowWorks() {
   ]
   return (
     <>
-      <div className='text-white'>
+      <div className='max-[860px]:w-[315px]'>
 
-        <h1 className='font-bold text-[38px]'>How It works</h1>
-        <div className='mb-[50px] text-[22px]'>Find out how to get started</div>
-        <div className='flex gap-[30px]'>
+        <h1 className='font-bold text-[38px] max-[1100px]:text-[28px]'>How It works</h1>
+        <div className='mb-[50px] text-[22px] max-[1100px]:text-[16px]'>Find out how to get started</div>
+        <div className='flex justify-center items-center flex-wrap gap-[30px]'>
         {HOWSTART_DATA.map((start, index) => (
           <>
-            <div className='flex flex-col text-center bg-[#3B3B3B] rounded-xl p-[20px] w-fit'>
-              <Image src={start.image} alt='Wallet' />
-              <h1 className='font-semibold text-[22px]'>{start.title}</h1>
-              <div className='w-[270px]'>{start.descr}</div>
+            <div className='flex flex-col items-center text-center bg-[#3B3B3B] rounded-xl p-[20px]
+            max-[1100px]:w-[210px] '>
+              <Image src={start.image} alt='Wallet'  />
+              <h1 className='font-semibold text-[22px]  
+                            max-[1100px]:text-[16px]'>{start.title}</h1>
+              <div className='w-[270px]
+                               max-[1100px]:text-[12px] max-[1100px]:w-[170px]'>{start.descr}</div>
             </div>
           </>
         ))}

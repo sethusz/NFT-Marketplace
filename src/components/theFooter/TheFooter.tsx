@@ -16,7 +16,7 @@ const TheFooter = (props: Props) => {
   const [email, setEmail] = useState('')
 
 	return (
-		<footer className='text-[#CCC] font-mono border-t-2 border-[#2B2B2B] w-full bg-[#3B3B3B] p-[30px] '>
+		<footer className='text-[#CCC] font-mono border-t-2 border-[#2B2B2B] w-full bg-[#3B3B3B] p-[30px]'>
 			<div className='flex flex-col gap-10 lg:gap-0 lg:flex-row justify-between w-[80%] md:m-auto  max-w-[1050px] '>
 				<ul className='flex flex-col gap-2'>
 					<li className='flex items-center'>
@@ -71,7 +71,7 @@ const TheFooter = (props: Props) => {
 						Get exclusive promotions & updates straight to your inbox.
 					</li>
 					<li className='w-fit'>
-					<EmailSubscribe />
+					<EmailSubscribe/>
 					</li>
 				</ul>
 			</div>

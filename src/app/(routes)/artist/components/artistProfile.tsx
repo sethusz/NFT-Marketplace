@@ -1,5 +1,4 @@
-import imgArtistPlaceHolder from '@/assets/imgArtistPlaceHolder.png'
-import bigAvatar from '@/assets/icon/bigAvatar.svg'
+'use client'
 import Image from 'next/image'
 import Button from '@/components/Button'
 import iconPlus from '@/assets/icon/iconPlus.svg'
@@ -8,13 +7,17 @@ import DiscordLogo from '@/assets/icon/DiscordLogo.svg'
 import TwitterLogo from '@/assets/icon/TwitterLogo.svg'
 import YoutubeLogo from '@/assets/icon/YoutubeLogo.svg'
 import InstagramLogo from '@/assets/icon/InstagramLogo.svg'
+import Link from 'next/link'
+import { useState } from 'react'
 
 
-export default function ArtistProfile() {
+
+export default function ArtistProfile(props: {
+	modal: React.ReactNode
+}) {
 
   return (
     <>
-
           <div className='ml-[30px]'>
             <div className='flex justify-between
                             max-[800px]:flex-col'>
@@ -35,11 +38,14 @@ export default function ArtistProfile() {
                 <li>50+</li>
                 <li>NFTs Sold</li>
               </ul>
-              <ul className="flex flex-col ">
+              <ul className="flex flex-col">
                 <li>3000+</li>
-                <li>Followers</li>
+                <li >Followers</li>
+      
               </ul>
             </div>
+            {props.modal}
+
 
             <div className='my-[20px]'>
               <h3 className='text-[#858584] text-[22px]'>Bio</h3>

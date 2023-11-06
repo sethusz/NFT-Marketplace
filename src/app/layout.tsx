@@ -3,8 +3,9 @@ import { Space_Mono, Work_Sans } from 'next/font/google';
 import './globals.css';
 import TheFooter from '@/components/theFooter/TheFooter';
 import TheHeader from '@/components/theHeader/TheHeader';
+import { ReduxProvider } from '@/redux/provider';
 
-const spaceMono = Space_Mono({ weight: ['400','700'], subsets: ['latin'] });
+const spaceMono = Space_Mono({ weight: ['400', '700'], subsets: ['latin'] });
 const workSans = Work_Sans({ weight: ['400', '700'], subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -15,15 +16,20 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 
-	
-
 	return (
 		<html lang='en'>
 			<body className={`${spaceMono.className}, ${workSans.className}`}>
-				<TheHeader />
-				<div className='flex justify-center text-white'>{children}</div>
-				<TheFooter />
+
+				<ReduxProvider>
+					<TheHeader />
+					<div className='flex justify-center text-white'>
+						{children}
+					</div>
+					<TheFooter />
+				</ReduxProvider>
+
 			</body>
+
 		</html>
 	);
 }

@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import logo from '@/assets/icon/logoHeader.svg';
-import { useWindowSize } from '@/hooks/useWindowSize';
+import { useWindowSize } from '@/lib/hooks/useWindowSize';
 import Adaptive from './Adaptive';
 import Default from './Default';
 import Link from 'next/link';

@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import NFTGlobe from '@/assets/icon/NFTGlobe.svg';
 import { TNft } from '../../types/nftTypes';
-import Auction from './Auction';
+
 
 const DataSection = ({ title, date, user, description, links, tags }: TNft) => {
 	return (
@@ -13,7 +13,6 @@ const DataSection = ({ title, date, user, description, links, tags }: TNft) => {
 				<p className=' text-[1em] text-textGray font-normal'>Minted on {date}</p>
 			</div>
 			<div className=' block sm:hidden'>
-				<Auction />
 			</div>
 			<div>
 				<h6 className='font-bold text-textGray text-[1em] mb-2'>Created By</h6>

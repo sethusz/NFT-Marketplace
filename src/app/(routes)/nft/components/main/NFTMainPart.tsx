@@ -4,14 +4,14 @@ import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 
 import { MockNFTData } from '../../data/mockNft';
-import Auction from './Auction';
 import DataSection from './DataSection';
 import Button from '@/components/Button';
 
 import arrowIcon from '@/assets/icon/NFTArrowIcon.svg';
 import CardFromOther from '@/components/NFTFromOthers';
 import { TNft } from '../../types/nftTypes';
-import { useWindowSize } from '@/hooks/useWindowSize';
+import { useWindowSize } from '@/lib/hooks/useWindowSize';
+import AuctionTime from '@/components/auctionTime';
 
 type Props = {};
 
@@ -38,8 +38,8 @@ const NFTMainPart = () => {
 			<div className='my-10  mx-7 md:mx-16 lg:mx-28 flex justify-between'>
 				<DataSection {...MockNFTData} />
 				<div className='hidden md:block'>
-					<Auction />
-				</div>
+			<AuctionTime button={true} />
+			</div>
 			</div>
 			<div className='my-20 mx-7 md:mx-16 lg:mx-28 flex flex-col lg:text-[22px] md:text-[16px]'>
 				<div className='flex md:justify-between '>

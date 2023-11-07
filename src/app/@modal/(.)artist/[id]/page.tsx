@@ -10,7 +10,7 @@ export default async function Followers() {
   return (
     <>
    <Modal>
-      <div>TEST</div>
+      <div>МОДАЛКА ГОТОВАЯ О ДААААААААА</div>
 </Modal>
     </>
   )

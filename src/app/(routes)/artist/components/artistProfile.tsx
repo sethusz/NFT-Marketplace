@@ -12,7 +12,7 @@ import Link from 'next/link';
 
 export default function ArtistProfile() {
 
-	
+	const id = ['followers']
 
 	return (
 		<>
@@ -46,7 +46,7 @@ export default function ArtistProfile() {
 						<li>50+</li>
 						<li>NFTs Sold</li>
 					</ul>
-					<Link href='/artist'>
+					<Link href={`/artist/${id}`}>
 					<ul className='flex flex-col'>
 							<li>3000+</li>
 							<li>Followers</li>

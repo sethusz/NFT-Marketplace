@@ -23,11 +23,12 @@ export default function Modal({ children }: ModalProps) {
 
   const onClick = useCallback<MouseEventHandler<HTMLDivElement>>(
     (e) => {
-      if (e.target === overlay.current || e.target === wrapper.current) {
+      // Проверяем, не был ли клик выполнен внутри wrapper (содержимого модального окна)
+      if (e.target === overlay.current) {
         if (onDismiss) onDismiss()
       }
     },
-    [onDismiss, overlay, wrapper],
+    [onDismiss, overlay],
   )
 
   const onKeyDown = useCallback(

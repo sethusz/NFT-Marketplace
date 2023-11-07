@@ -1,8 +1,9 @@
 import Button from '@/components/Button';
 import iconEye from '@/assets/icon/iconEye.svg'
-import { MockNFTData } from '../../nft/data/mockNft';
+// import { MockNFTData } from '../../nft/data/mockNft';
+import { MockNFTData } from '@/app/(routes)/nft/data/mockNft'
 import CardFromOther from '@/components/NFTFromOthers';
-import { TNft } from '../../nft/types/nftTypes';
+import { TNft } from '@/app/(routes)/nft/types/nftTypes';
 import Link from 'next/link';
 
 export default function MoreNft() {

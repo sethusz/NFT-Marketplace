@@ -8,16 +8,16 @@ import TwitterLogo from '@/assets/icon/TwitterLogo.svg';
 import YoutubeLogo from '@/assets/icon/YoutubeLogo.svg';
 import InstagramLogo from '@/assets/icon/InstagramLogo.svg';
 import Link from 'next/link';
-import { useAppDispatch, useAppSelector } from '@/lib/hooks/redux';
-import { toggleFollowers } from '@/redux/features/popupSlice';
 
-export default function ArtistProfile(props: { modal: React.ReactNode }) {
-	// const { followers: popUpFollowers } = useAppSelector((state) => state.popUpReducer);
-	const dispatch = useAppDispatch();
+
+export default function ArtistProfile() {
+
+	
 
 	return (
 		<>
 			<div className='ml-[30px]'>
+
 				<div
 					className='flex justify-between
                             max-[800px]:flex-col'
@@ -46,14 +46,15 @@ export default function ArtistProfile(props: { modal: React.ReactNode }) {
 						<li>50+</li>
 						<li>NFTs Sold</li>
 					</ul>
-					<ul className='flex flex-col' onClick={() => dispatch(toggleFollowers())}>
+					<Link href='/artist'>
+					<ul className='flex flex-col'>
 							<li>3000+</li>
 							<li>Followers</li>
-
 					</ul>
+					</Link>
 				</div>
 				
-        {props.modal}
+
 
 				<div className='my-[20px]'>
 					<h3 className='text-[#858584] text-[22px]'>Bio</h3>

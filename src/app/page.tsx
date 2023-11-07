@@ -1,9 +1,11 @@
-import  HomePage from "./(routes)/home/page";
+import Link from "next/link";
+import HomePage from "./(routes)/home/page";
 
 export default function MainPage() {
-	return (
-		<>
-			<HomePage />
-		</>
-	);
+  const id = 3
+  return (
+    <>
+      <HomePage />
+    </>
+  );
 }

@@ -13,6 +13,7 @@ const Default = () => {
 		{ title: 'Marketplace', src: '/marketplace/nfts' },
 		{ title: 'Rankings', src: '/ranking' },
 		{ title: 'Artist', src: '/artist' },
+		{ title: 'Profile', src: '/profile' },
 	];
 
 	return (

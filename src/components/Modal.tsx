@@ -14,7 +14,6 @@ interface ModalProps {
 
 export default function Modal({ children }: ModalProps) {
   const overlay = createRef<HTMLDivElement>()
-  const wrapper = createRef<HTMLDivElement>()
   const router = useRouter()
 
   const onDismiss = useCallback(() => {
@@ -23,7 +22,6 @@ export default function Modal({ children }: ModalProps) {
 
   const onClick = useCallback<MouseEventHandler<HTMLDivElement>>(
     (e) => {
-      // Проверяем, не был ли клик выполнен внутри wrapper (содержимого модального окна)
       if (e.target === overlay.current) {
         if (onDismiss) onDismiss()
       }
@@ -50,8 +48,8 @@ export default function Modal({ children }: ModalProps) {
       onClick={onClick}
     >
       <div
-        ref={wrapper}
-        className="absolute left-1/2 top-1/2 flex w-full -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded border border-zinc-700 bg-zinc-800 p-6 sm:w-10/12 md:w-8/12 lg:w-1/2"
+     
+        className="absolute w-[25%] max-h-[400px] overflow-hidden left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded border border-zinc-700 bg-zinc-800 p-6"
       >
         {children}
       </div>

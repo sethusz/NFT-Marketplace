@@ -1,13 +1,9 @@
 'use client'
 import { useState } from 'react';
 
-import Image from "next/image";
-import imgAuth from '@/assets/imgAuth.png'
-import AuthLayout from '@/components/AuthLayout';
-
 export default function Fields() {
   const [formData, setFormData] = useState({
-    username: '',
+    userName: '',
     email: '',
     password: '',
     confirmPassword: '',
@@ -21,16 +17,40 @@ export default function Fields() {
     });
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+  
+    try {
+      const res = await fetch('http://localhost:5455/user/signUp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userName: formData.userName,
+          password: formData.password,
+          email: formData.email,
+        }),
+      });
+  
+      if (!res.ok) {
+        throw new Error('Network response was not ok');
+      }
+  
+      const data = await res.json();
+      console.log(data);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  
     setFormData({
-      username: '',
+      userName: '',
       email: '',
       password: '',
       confirmPassword: '',
     });
   };
+  
 
   return (
     <div className='mb-[40px] flex flex-col justify-center items-center'>
@@ -38,10 +58,10 @@ export default function Fields() {
         <div className="mb-4">
           <input
             type="text"
-            id="username"
-            name="username"
+            id="userName"
+            name="userName"
             placeholder='Username'
-            value={formData.username}
+            value={formData.userName}
             onChange={handleChange}
 
             required

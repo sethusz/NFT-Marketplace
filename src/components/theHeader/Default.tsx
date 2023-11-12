@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
 import Button from '../Button';
+import Cookies from 'js-cookie';
 
 import logoUser from '@/assets/icon/logoUser.svg';
 
@@ -16,6 +17,10 @@ const Default = () => {
 		{ title: 'Profile', src: '/profile' },
 	];
 
+	const userAuthString = Cookies.get('token');
+
+	console.log(userAuthString)
+	
 	return (
 		<>
 			{linksArr.map((el) => (
@@ -32,7 +37,7 @@ const Default = () => {
 			<Button
 				title='Sign In'
 				icon={logoUser}
-				styles=' py-[20px] px-[30px]'
+				styles=' py-[10px] px-[15px]'
 			/>
 			</Link>
 

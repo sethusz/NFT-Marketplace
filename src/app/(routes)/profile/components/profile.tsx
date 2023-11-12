@@ -9,6 +9,8 @@ import Link from 'next/link';
 const Profile = () => {
   const id = ['followers'];
   const [bioText, setBioText] = useState("The internet's friendliest designer kid.");
+  const buttonStyles = `text-[16px] font-semibold text-center px-[80px] py-[20px] bg-[#A259FF] rounded-[20px]
+  shadow-md transition-shadow ease-in-out duration-200 hover:shadow-[0_0_10px_#A239FF]`
 
   const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setBioText(e.target.value);
@@ -18,12 +20,21 @@ const Profile = () => {
     <>
       <div className='ml-[30px]'>
         <div className='flex justify-between max-[800px]:flex-col'>
-          <h1 className='text-[51px] font-semibold max-[1100px]:text-[38px] max-[600px]:text-[28px]'>
+          <h1 className='text-[51px]  font-semibold max-[1100px]:text-[38px] max-[600px]:text-[28px]'>
             Name Avatar
           </h1>
+
+          <div className='flex flex-col p-[15px] rounded-[20px] h-fit w-[290px]'>
+            <Link href='/profile/uploadNft'>
+              <button className={`${buttonStyles}`}>
+                Upload NFT
+              </button>
+            </Link>
+
+          </div>
         </div>
 
-        <div className='flex gap-[30px]'>
+        <div className='flex flex-wrap gap-[30px]'>
           <ul className='flex flex-col '>
             <li>250k+</li>
             <li>Volume</li>

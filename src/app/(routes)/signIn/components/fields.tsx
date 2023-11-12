@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react';
+import Cookies from 'js-cookie';
 
 export default function Fields() {
   const [formData, setFormData] = useState({
@@ -15,9 +16,36 @@ export default function Fields() {
     });
   };
 
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
+  const userAuthString = Cookies.get('token');
 
+	
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+  
+    try {
+      const res = await fetch('http://localhost:5455/user/signIn', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          password: formData.password,
+          email: formData.email,
+        }),
+      });
+  
+      if (!res.ok) {
+        throw new Error('Network response was not ok');
+      }
+  
+      const data = await res.json();
+      console.log(data);
+      console.log(userAuthString)
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  
     setFormData({
       email: '',
       password: '',

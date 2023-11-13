@@ -52,24 +52,15 @@ export default function ArtistNft() {
 
   return (
     <>
-      <div>
-        {/* <div className="flex gap-[60px] 
-                        max-[600px]:gap-[25px]">
-          {tabsData.map((data: tabsData, index: number) => (
-            <Tabs key={index} label={data.label} value={data.value} index={index} />
-          ))}
-        </div> */}
-
-
         <div className='flex text-base md:text-[22px]'>
-
           <Link
             href='/artist/created'
             className={`${linksStyles} ${path === '/artist/created' ? 'border-white' : ' opacity-60 '
               } `}
           >
             <span className='text-[1em] font-semibold mr-3'>Created</span>
-            <span className='text-[.7em] font-normal px-[10px] py-[5px] rounded-[20px] bg-textGray'>
+            <span className='text-[.7em] font-normal px-[10px] py-[5px] rounded-[20px] bg-textGray
+                            max-[500px]:hidden'>
               32
             </span>
           </Link>
@@ -79,7 +70,8 @@ export default function ArtistNft() {
             className={`${linksStyles} ${path === '/artist/owned' ? 'border-white' : ' opacity-60 '
               } `}				>
             <span className='text-[1em] font-semibold mr-3'>Owned</span>
-            <span className='text-[.7em] font-normal px-[10px] py-[5px] rounded-[20px] bg-textGray'>
+            <span className='text-[.7em] font-normal px-[10px] py-[5px] rounded-[20px] bg-textGray
+                              max-[500px]:hidden'>
               32
             </span>
           </Link>
@@ -88,29 +80,13 @@ export default function ArtistNft() {
             href='/artist/collection'
             className={`${linksStyles} ${path === '/artist/collection' ? 'border-white' : ' opacity-60 '
               } `}				>
-            <span className='text-[1em] font-semibold mr-3'>Owned</span>
-            <span className='text-[.7em] font-normal px-[10px] py-[5px] rounded-[20px] bg-textGray'>
+            <span className='text-[1em] font-semibold mr-3'>Collection</span>
+            <span className='text-[.7em] font-normal px-[10px] py-[5px] rounded-[20px] bg-textGray
+                            max-[500px]:hidden'>
               32
             </span>
           </Link>
         </div>
-
-        {/* <div className='flex flex-wrap justify-center gap-[30px] my-[40px] mx-7 md:mx-16 lg:mx-28'>
-          {Array(9)
-            .fill(MockNFTData)
-            .map((el: TNft, i) => (
-              <CardFromOther
-                title={el.title}
-                img={el.img}
-                user={el.user}
-                price={el.price}
-                highest_bid={el.highest_bid}
-                key={i}
-              />
-            ))}
-        </div> */}
-
-      </div>
     </>
   );
 }

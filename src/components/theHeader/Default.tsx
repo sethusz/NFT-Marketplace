@@ -13,7 +13,7 @@ const Default = () => {
 	const linksArr = [
 		{ title: 'Marketplace', src: '/marketplace/nfts' },
 		{ title: 'Rankings', src: '/ranking' },
-		{ title: 'Artist', src: '/artist' },
+		{ title: 'Artist', src: '/artist/created' },
 		{ title: 'Profile', src: '/profile' },
 	];
 

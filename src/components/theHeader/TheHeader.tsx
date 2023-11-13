@@ -15,7 +15,7 @@ const TheHeader = (props: Props) => {
 
 
 	return (
-		<header className='flex w-full justify-between  items-center px-6 py-4 md:px-12 md:py-6' >
+		<header className='flex w-full justify-between  items-center px-6 py-4 md:px-12 md:py-6 min-h-[100px]' >
 			<Link href='/' className='flex items-center justify-center'>
 				<Image
 					src={logo}

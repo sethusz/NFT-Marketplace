@@ -1,4 +1,6 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
+
+
 
 type InitialState = {
   value: AuthState;
@@ -10,6 +12,7 @@ type AuthState = {
   uid: string;
   isModerator: boolean;
 }
+
 
 const initialState = {
   value: {
@@ -24,21 +27,26 @@ export const auth = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    logOut: () => {
-      return initialState;
-    },
-    logIn: (state, action: PayloadAction<string>) => {
-      return {
-        value: {
-          isAuth: true,
-          username: action.payload,
-          uid: "sdasdasdsadasdas",
-          isModerator: false,
-        }
-      }
+    signInToggle: (state) => {
+      state.value.isAuth = true
     }
   }
+  // reducers: {
+  //   logOut: () => {
+  //     return initialState;
+  //   },
+  //   logIn: (state, action: PayloadAction<string>) => {
+  //     return {
+  //       value: {
+  //         isAuth: true,
+  //         username: action.payload,
+  //         uid: "sdasdasdsadasdas",
+  //         isModerator: false,
+  //       }
+  //     }
+  //   }
+  // }
 })
 
-export const {logIn, logOut} = auth.actions
+export const {signInToggle} = auth.actions
 export default auth.reducer;

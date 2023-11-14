@@ -1,7 +1,12 @@
 'use client'
+import { useAppDispatch } from '@/lib/hooks/redux';
+import { signInToggle } from '@/redux/features/auth-slice';
 import { useState } from 'react';
 
 export default function Fields() {
+
+  const dispatch = useAppDispatch()
+
   const [formData, setFormData] = useState({
     userName: '',
     email: '',
@@ -39,6 +44,7 @@ export default function Fields() {
       }
   
       const data = await res.json();
+      dispatch(signInToggle())
       console.log(data);
     } catch (error) {
       console.error('Error:', error);

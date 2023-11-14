@@ -31,21 +31,6 @@ export const auth = createSlice({
       state.value.isAuth = true
     }
   }
-  // reducers: {
-  //   logOut: () => {
-  //     return initialState;
-  //   },
-  //   logIn: (state, action: PayloadAction<string>) => {
-  //     return {
-  //       value: {
-  //         isAuth: true,
-  //         username: action.payload,
-  //         uid: "sdasdasdsadasdas",
-  //         isModerator: false,
-  //       }
-  //     }
-  //   }
-  // }
 })
 
 export const {signInToggle} = auth.actions

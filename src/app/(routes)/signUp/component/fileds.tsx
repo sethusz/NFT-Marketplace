@@ -23,6 +23,7 @@ export default function Fields() {
     try {
       const res = await fetch('http://localhost:5455/user/signUp', {
         method: 'POST',
+        credentials: 'include', // Important for cookies
         headers: {
           'Content-Type': 'application/json',
         },

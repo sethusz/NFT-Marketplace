@@ -26,6 +26,7 @@ export default function Fields() {
     try {
       const res = await fetch('http://localhost:5455/user/signIn', {
         method: 'POST',
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
         },

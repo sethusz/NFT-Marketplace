@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 import logoUser from '@/assets/icon/logoUser.svg';
 
 
-const Default = ({ isAuth }: { isAuth: boolean }) => {
+const Default = ({ isAuth }: { isAuth: string | null }) => {
 	const [activeLink, setActiveLink] = useState('/');
 	const router = useRouter(); 
 
@@ -17,14 +17,12 @@ const Default = ({ isAuth }: { isAuth: boolean }) => {
 		{ title: 'Rankings', src: '/ranking' },
 		{ title: 'Artist', src: '/artist/created' },
 		{ title: 'Profile', src: '/profile' },
-	];
-
-	const userAuthString = Cookies.get('token');
+	];	
 
 	const handleLogout = () => {
-		// Cookies.remove('token');
+		localStorage.removeItem('token')
 		
-		// router.refresh();
+		router.refresh();
 	};
 
 	return (
@@ -32,6 +30,7 @@ const Default = ({ isAuth }: { isAuth: boolean }) => {
 			{linksArr.map((el) => (
 				<Link
 					href={el.src}
+					key={el.title}
 					className={`px-[20px] py-[12px] font-semibold  ${activeLink === el.src ? 'text-gray-600' : ''
 						} 
 					          hover:text-gray-500`}
@@ -40,7 +39,7 @@ const Default = ({ isAuth }: { isAuth: boolean }) => {
 					{el.title}
 				</Link>
 			))}
-			{userAuthString ? (
+			{isAuth ? (
 				<div className='cursor-pointer' onClick={handleLogout}>
 					Exit
 				</div>

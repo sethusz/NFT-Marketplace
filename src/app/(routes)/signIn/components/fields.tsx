@@ -46,6 +46,7 @@ export default function Fields() {
       }
   
       const data = await res.json();
+      localStorage.setItem('token', data.data.token)
       dispatch(signInToggle())
       console.log(data);
       console.log(userAuthString)
@@ -59,7 +60,8 @@ export default function Fields() {
     });
   };
 
-  return (
+
+  return (  
     <div className='mb-[40px] flex flex-col justify-center items-center'>
   <form onSubmit={handleSubmit} className="mt-[16px]">
 
@@ -96,6 +98,7 @@ export default function Fields() {
           >
             Sign In
           </button>
+          
         </form>
 
     

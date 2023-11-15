@@ -44,6 +44,7 @@ export default function Fields() {
       }
   
       const data = await res.json();
+      localStorage.setItem('token', data.data.token)
       dispatch(signInToggle())
       console.log(data);
     } catch (error) {

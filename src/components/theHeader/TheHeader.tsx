@@ -6,15 +6,23 @@ import { useWindowSize } from '@/lib/hooks/useWindowSize';
 import Adaptive from './Adaptive';
 import Default from './Default';
 import Link from 'next/link';
-import { useAppSelector } from '@/lib/hooks/redux';
+import { useAppDispatch, useAppSelector } from '@/lib/hooks/redux';
+import { useEffect } from 'react';
+import { signInToggle } from '@/redux/features/auth-slice';
 
 type Props = {};
 
 const TheHeader = (props: Props) => {
 	
+	const dispatch = useAppDispatch()
+
 	const { width: windowWidth } = useWindowSize();
 
 	const {isAuth} = useAppSelector((state) => state.authReducer.value)
+
+	useEffect(() => {
+		dispatch(signInToggle())
+	}, [])
 
 	return (
 		<header className='flex w-full justify-between  items-center px-6 py-4 md:px-12 md:py-6 min-h-[100px]' >

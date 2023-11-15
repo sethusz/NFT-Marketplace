@@ -7,7 +7,7 @@ type InitialState = {
 }
 
 type AuthState = {
-  isAuth: boolean;
+  isAuth: string | null;
   username: string;
   uid: string;
   isModerator: boolean;
@@ -16,19 +16,20 @@ type AuthState = {
 
 const initialState = {
   value: {
-    isAuth: false,
+    isAuth: '',
     username: "",
     uid: "",
     isModerator: false,
   } as AuthState
 } as InitialState
 
+
 export const auth = createSlice({
   name: "auth",
   initialState,
   reducers: {
     signInToggle: (state) => {
-      state.value.isAuth = true
+      state.value.isAuth = localStorage.getItem('token')
     }
   }
 })

@@ -72,7 +72,7 @@ export default function Fields() {
             value={formData.email}
             onChange={handleChange}
             required
-            className="mt-1 p-2 w-[330px] border border-gray-300 rounded-3xl	text-black pl-[30px]"
+            className="mt-1 p-2 w-[330px] border border-gray-300 rounded-3xl text-black pl-[30px]"
           />
         </div>
 

@@ -26,9 +26,9 @@ export default function Fields() {
     e.preventDefault();
   
     try {
-      const res = await fetch('http://localhost:5455/user/signUp', {
+      const res = await fetch('https://nft-backend-beryl.vercel.app/user/signUp', {
         method: 'POST',
-        credentials: 'include', // Important for cookies
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
         },

@@ -29,7 +29,7 @@ export default function Fields() {
     e.preventDefault();
   
     try {
-      const res = await fetch('http://localhost:5455/user/signIn', {
+      const res = await fetch('https://nft-backend-beryl.vercel.app/user/signIn', {
         method: 'POST',
         credentials: 'include',
         headers: {

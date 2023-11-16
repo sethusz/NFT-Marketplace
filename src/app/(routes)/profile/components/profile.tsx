@@ -16,6 +16,33 @@ const Profile = () => {
     setBioText(e.target.value);
   };
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+  
+    try {
+      const res = await fetch('https://nft-backend-beryl.vercel.app/user/', {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      
+      });
+  
+      if (!res.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const data = await res.json();
+
+      console.log(data)
+
+    } catch (error) {
+      console.error('Error:', error);
+    }
+
+  };
+
   return (
     <>
       <div className='ml-[30px]'>

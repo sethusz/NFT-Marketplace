@@ -2,17 +2,20 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
 import Button from '../Button';
+import iconExit from '@/assets/icon/iconExit.svg'
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/navigation';
 import { useAppDispatch, useAppSelector } from '@/lib/hooks/redux';
-
 import logoUser from '@/assets/icon/logoUser.svg';
 import { signInToggle } from '@/redux/features/auth-slice';
+import { usePathname } from 'next/navigation'
+import Image from 'next/image';
+
 
 const Default = ({ isAuth }: { isAuth: string | null }) => {
-  const [activeLink, setActiveLink] = useState('/');
   const router = useRouter();
-	const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
+  const pathname = usePathname()
 
   const linksNoAuth = [
     { title: 'Marketplace', src: '/marketplace/nfts' },
@@ -22,16 +25,21 @@ const Default = ({ isAuth }: { isAuth: string | null }) => {
   const linksAuth = [
     { title: 'Marketplace', src: '/marketplace/nfts' },
     { title: 'Rankings', src: '/ranking' },
-    { title: 'Artist', src: '/artist/created' },
+    { title: 'Artist', src: '/artist' },
     { title: 'Profile', src: '/profile' },
+
+
   ];
 
   const handleLogout = () => {
     localStorage.removeItem('token');
-		
-    dispatch(signInToggle())
+    dispatch(signInToggle());
     router.refresh();
   };
+
+  const activeLink = isAuth
+    ? linksAuth.find((el) => pathname.startsWith(el.src))?.src || ''
+    : linksNoAuth.find((el) => pathname === el.src)?.src || '';
 
   return (
     <>
@@ -43,14 +51,12 @@ const Default = ({ isAuth }: { isAuth: string | null }) => {
               key={el.title}
               className={`px-[20px] py-[12px] font-semibold ${activeLink === el.src ? 'text-gray-600' : ''}
                         hover:text-gray-500`}
-              onClick={() => setActiveLink(el.src)}
             >
               {el.title}
             </Link>
           ))}
-          <div className='cursor-pointer' onClick={handleLogout}>
-            Exit
-          </div>
+          <Image src={iconExit} alt='exit'  className='cursor-pointer hover:brightness-150'
+                                            onClick={handleLogout} />
         </>
       ) : (
         <>
@@ -60,7 +66,6 @@ const Default = ({ isAuth }: { isAuth: string | null }) => {
               key={el.title}
               className={`px-[20px] py-[12px] font-semibold ${activeLink === el.src ? 'text-gray-600' : ''}
                               hover:text-gray-500`}
-              onClick={() => setActiveLink(el.src)}
             >
               {el.title}
             </Link>
@@ -78,5 +83,4 @@ const Default = ({ isAuth }: { isAuth: string | null }) => {
 };
 
 export default Default;
-
 

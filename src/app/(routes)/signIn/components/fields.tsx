@@ -23,8 +23,6 @@ export default function Fields() {
 
   const userAuthString = Cookies.get('token');
 
-	
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
   

@@ -7,7 +7,7 @@ import ArtistProfile from "./components/artistProfile";
 export default function Layout(props: { children: React.ReactNode }) {
   return (
 
-    <div>
+    <div className='w-full text-[22px]'>
       <ArtistImage />
       <div
         className='mt-[60px] mx-28
@@ -16,7 +16,11 @@ export default function Layout(props: { children: React.ReactNode }) {
         <ArtistProfile />
         <ArtistNft />
       </div>
-      {props.children}
+
+
+        {props.children}
+  
+
     </div>
 
   );

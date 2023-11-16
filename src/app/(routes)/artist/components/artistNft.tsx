@@ -26,29 +26,7 @@ export default function ArtistNft() {
   w-1/2 inline-block border-b 
    border-transparent items-center flex justify-center`;
 
-  const Tabs = ({ label, value, index }: tabsData) => (
-    <div
-      className='flex flex-col items-center w-[33%] gap-[16px]  
-                max-[600px]:gap-[5px]'
-      onClick={() => handleTabClick(index)}
-    >
-      <div className="flex font-semibold text-[22px] gap-[15px] 
-                      max-[800px]:text-[16px]">
-        {label}
-        <div className="bg-[#858584] rounded-full w-[50px] text-[16px] font-normal flex justify-center items-center text-center
-                        max-[600px]:hidden">
-          {value}
-        </div>
-      </div>
-      <div className={` ${activeTab === index ? 'border h-0 w-[100%] border-[#858584]' : ''}`}></div>
-    </div>
-  );
 
-  const tabsData: tabsData[] = [
-    { label: 'Created', value: 302, index: 0 },
-    { label: 'Owned', value: 405, index: 1 },
-    { label: 'Collection', value: 527, index: 2 },
-  ];
 
   return (
     <>

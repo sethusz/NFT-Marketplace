@@ -1,25 +1,32 @@
-'use client';
-
-
-import ProfileImage from './components/profileImage';
-import ProfileNft from './components/profileNft';
-import Profile from './components/profile';
-import { useAppSelector } from '@/lib/hooks/redux';
-
+'use client'
+import { useEffect, useState } from "react";
 
 export default function ArtistPage() {
+
+	const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    if (!isScrolled) {
+      window.scrollTo(0, 0);
+      setIsScrolled(true);
+      console.log(`isScrolled ${isScrolled}`)
+    }
+
+    if (isScrolled) {
+      console.log(`isScrolled ${isScrolled}`)
+    }
+
+  }, [isScrolled]);
+	
 	return (
 		<>
-			<div className='w-full  '>
-				<ProfileImage />
-				<div
-					className='mt-[60px] mx-28
-                      max-[800px]:mx-0'
-				>
-					<Profile />
-					<ProfileNft />
+
+			<div className="flex justify-center">
+				<div className="flex justify-center items-center my-10 bg-[#3B3B3B] w-fit p-[20px] rounded-md ">
+					You will see your NFTs here
 				</div>
 			</div>
 		</>
 	);
 }
+

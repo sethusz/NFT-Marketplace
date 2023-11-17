@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Cookies from 'js-cookie';
 import { useAppDispatch } from '@/lib/hooks/redux';
 import { signInToggle } from '@/redux/features/auth-slice';
+import { cookies } from 'next/headers';
 
 export default function Fields() {
 
@@ -45,6 +46,7 @@ export default function Fields() {
   
       const data = await res.json();
       localStorage.setItem('token', data.data.token)
+      Cookies.set('tokenFront',  data.data.token)
       dispatch(signInToggle())
       console.log(data);
       console.log(userAuthString)

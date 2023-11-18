@@ -11,9 +11,10 @@ interface LargeScreenProps {
     isAuth: string | null;
     activeLink: string;
     links: { title: string; src: string }[];
+    menuOpen: boolean;
 }
 
-const LargeScreen = ({ isAuth, activeLink, links } : LargeScreenProps) => {
+const LargeScreen = ({ isAuth, activeLink, links, menuOpen } : LargeScreenProps) => {
     const dispatch = useAppDispatch();
 
     const handleLogout = () => {
@@ -22,7 +23,7 @@ const LargeScreen = ({ isAuth, activeLink, links } : LargeScreenProps) => {
     };
 
     return (
-        <div className="hidden lg:flex items-center space-x-4">
+        <div className='hidden lg:flex items-center space-x-4'>
             {isAuth ? (
                 <>
                     {links.map((el) => (

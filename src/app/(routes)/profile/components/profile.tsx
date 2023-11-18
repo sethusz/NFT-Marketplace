@@ -19,29 +19,29 @@ const getUserData = async () => {
 			headers: {
 				'Content-Type': 'application/json',
 			},
-			cache: 'force-cache' 
+			cache: 'force-cache'
 		});
 		const data = await res.json()
-    return data
+		return data
 	} catch (error) {
 		console.log(error);
 	}
 };
 
 const Profile = () => {
-  const [userData, setUserData] = useState({
-    userName: ''
-  })
+	const [userData, setUserData] = useState({
+		userName: ''
+	})
 	const id = ['followers'];
 	const [bioText, setBioText] = useState("The internet's friendliest designer kid.");
-	const buttonStyles = `text-[16px] font-semibold text-center px-[80px] py-[20px] bg-[#A259FF] rounded-[20px]
+	const buttonStyles = `text-[16px] w-[300px] font-semibold text-center px-[80px] py-[20px] bg-[#A259FF] rounded-[20px]
   shadow-md transition-shadow ease-in-out duration-200 hover:shadow-[0_0_10px_#A239FF]`;
 
 	const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setBioText(e.target.value);
 	};
 
-  
+
 
 	useEffect(() => {
 		getUserData()
@@ -57,32 +57,41 @@ const Profile = () => {
 						{userData.userName ? userData.userName : 'Loading...'}
 					</h1>
 
-					<div className='flex flex-col p-[15px] rounded-[20px] h-fit w-[290px]'>
-						<Link href='/profile/uploadNft'>
+					<div className='flex flex-col p-[15px] rounded-[20px] h-fit'>
+						<Link href='/uploadNft'>
 							<button className={`${buttonStyles}`}>Upload NFT</button>
 						</Link>
 					</div>
+
+
 				</div>
 
-				<div className='flex flex-wrap gap-[30px]'>
-					<ul className='flex flex-col '>
-						<li>250k+</li>
-						<li>Volume</li>
-					</ul>
-					<ul className='flex flex-col '>
-						<li>50+</li>
-						<li>NFTs Sold</li>
-					</ul>
-					<ul className='flex flex-col'>
-						<li>3000+</li>
-						<li>Following</li>
-					</ul>
-					<Link href={`/artist/${id}`}>
+				<div className='flex justify-between'>
+					<div className='flex flex-wrap gap-[30px]'>
+						<ul className='flex flex-col '>
+							<li>250k+</li>
+							<li>Volume</li>
+						</ul>
+						<ul className='flex flex-col '>
+							<li>50+</li>
+							<li>NFTs Sold</li>
+						</ul>
 						<ul className='flex flex-col'>
 							<li>3000+</li>
-							<li>Followers</li>
+							<li>Following</li>
 						</ul>
-					</Link>
+						<Link href={`/artist/${id}`}>
+							<ul className='flex flex-col'>
+								<li>3000+</li>
+								<li>Followers</li>
+							</ul>
+						</Link>
+					</div>
+					<div className='flex flex-col p-[15px] rounded-[20px] h-fit'>
+						<Link href='/createCollection'>
+							<button className={`${buttonStyles}`}>Create Collection</button>
+						</Link>
+					</div>
 				</div>
 
 				<div className='my-[20px]'>

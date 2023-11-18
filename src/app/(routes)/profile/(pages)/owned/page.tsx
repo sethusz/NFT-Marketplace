@@ -1,4 +1,4 @@
-import FilterAndCards from "../components/filterAndCards";
+import FilterAndCards from "../../components/filterAndCards";
 
 
 

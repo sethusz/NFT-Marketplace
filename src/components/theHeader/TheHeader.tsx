@@ -44,8 +44,21 @@ const TheHeader = (props: Props) => {
 		dispatch(signInToggle())
 	}, [])
 
+	// useEffect(() => {
+	//   if (menuOpen) {
+	//     document.body.classList.add('blur-md')
+	//   } else {
+	//     document.body.classList.remove('blur-md');
+	//   }
+
+	//   return () => {
+	//     document.body.classList.remove('blur-md');
+	//   };
+	// }, [menuOpen]);
+
 	return (
-		<header className='flex w-full justify-between  items-center px-6 py-4 md:px-12 md:py-6 min-h-[100px]' >
+
+		<header className='flex w-full justify-between items-center px-6 py-4 md:px-12 md:py-6 min-h-[100px]' >
 			<Link href='/' className='flex items-center justify-center'>
 				<Image
 					src={logo}
@@ -60,18 +73,14 @@ const TheHeader = (props: Props) => {
 			<nav className='flex gap-[10px] items-center'>
 
 				<div
-					className={`block lg:hidden cursor-pointer  ${menuOpen ? 'transform rotate-80 translate-y-1' : ''}`}
-					onClick={() => setMenuOpen(!menuOpen)}
-				>
-					<div className={`w-6 h-1 bg-[#605f5f] mb-1 transition-transform duration-300 transform ${menuOpen ? 'rotate-45 -translate-y-1' : ''}`} />
-					<div className={`w-6 h-1 bg-[#605f5f] mb-1 transition-opacity duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
-					<div className={`w-6 h-1 bg-[#605f5f] transition-transform duration-300 transform ${menuOpen ? '-rotate-45 -translate-y-1' : ''}`} />
+					className={`lg:hidden block cursor-pointer `}
+					onClick={() => setMenuOpen(!menuOpen)}>
+					<div className={`w-6 h-1 bg-white mb-1 transition-transform duration-300 transform `} />
+					<div className={`w-6 h-1 bg-white mb-1 transition-opacity duration-300 `} />
+					<div className={`w-6 h-1 bg-white transition-transform duration-300 transform `} />
 				</div>
 
-
-
-
-				<LargeScreen isAuth={isAuth} activeLink={activeLink} links={isAuth ? linksAuth : linksNoAuth} />
+				<LargeScreen isAuth={isAuth} activeLink={activeLink} links={isAuth ? linksAuth : linksNoAuth} menuOpen={menuOpen} />
 
 				{menuOpen && (
 					<SmallScreen
@@ -79,6 +88,7 @@ const TheHeader = (props: Props) => {
 						activeLink={activeLink}
 						links={isAuth ? linksAuth : linksNoAuth}
 						setMenuOpen={setMenuOpen}
+						menuOpen={menuOpen}
 					/>
 				)}
 			</nav>

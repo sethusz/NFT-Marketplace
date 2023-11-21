@@ -5,12 +5,13 @@ import Image from 'next/image'
 import { TNft } from './type';
 import { MockCollectionData } from './collectionData';
 import { MockNFTData } from '@/app/(routes)/nft/data/mockNft';
+import Link from 'next/link';
 
 export default function Collection() {
   const [qtyOfCards, setqtyOfCards] = useState(12);
 
   const collectionNft = (
-    <div className="flex flex-col rounded-[20px] hover:cursor-pointer hover:scale-[1.05] transition-transform">
+    <Link href='/collection' className="flex flex-col rounded-[20px] hover:cursor-pointer hover:scale-[1.05] transition-transform">
       <Image src={MockCollectionData.img} alt="nft image" className="object-cover w-[350px] h-[170px] rounded-t-[20px]" />
       <div className="bg-[#2B2B2B] flex flex-col gap-6 rounded-b-[20px] p-[25px]">
         <div className="flex flex-col gap-2">
@@ -29,7 +30,7 @@ export default function Collection() {
         </div>
 
       </div>
-    </div>
+    </Link>
   );
 
 

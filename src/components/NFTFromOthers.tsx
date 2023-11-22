@@ -4,7 +4,7 @@ import { TNft } from '@/app/(routes)/nft/types/nftTypes'
 import Link from 'next/link'
 
 type Props = {
-    img: StaticImageData,
+    img: StaticImageData | string,
     title: string,
     user: TNft['user'],
     price: number,
@@ -15,7 +15,7 @@ type Props = {
 const CardFromOther = ({img, title, user, price, highest_bid, customBG}: Props) => {
   return (
     <div className='flex flex-col rounded-[20px]  hover:cursor-pointer hover:scale-[1.05]  transition-transform'>
-        <Image src={img} alt='nft image'  className=' object-cover w-[330px] h-[295px] rounded-t-[20px]'/>
+        <Image src={img} alt='nft image' width={330} height={295}  className=' object-cover w-[330px] h-[295px] rounded-t-[20px]'/>
         <div className="bg-[#2B2B2B] flex flex-col gap-6 rounded-b-[20px] p-[25px]">
             <div className="flex flex-col gap-2">
                 <span className=' text-[22px] text-white font-semibold'>{title}</span>
@@ -24,6 +24,8 @@ const CardFromOther = ({img, title, user, price, highest_bid, customBG}: Props) 
 						src={user.img}
 						alt='user image'
 						className='w-[24px] h-[24px] rounded-full'
+                        width={24}
+                        height={24}
 					/>
 					<p className='text-[16px] text-white font-normal'>{user.name}</p>
 				</div>

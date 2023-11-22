@@ -2,7 +2,7 @@ import { StaticImageData } from "next/image"
 
 type TMockUser = {
     name: string,
-    img: StaticImageData
+    img: StaticImageData | string
 }
 
 type TLinks = {

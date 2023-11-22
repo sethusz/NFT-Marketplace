@@ -1,7 +1,13 @@
 'use client'
-import { useState } from 'react';
+import { SetStateAction, useState } from 'react';
 
-const UploadForm = () => {
+
+type TProps = {
+  imgData: any
+}
+
+
+const UploadForm = ({ imgData }: TProps) => {
   const [name, setName] = useState('');
   const [category, setCategory] = useState('');
   const [description, setDescription] = useState('');
@@ -10,15 +16,43 @@ const UploadForm = () => {
 
   const categories = ['Category1', 'Category2', 'Category3', 'Category4', 'Category5', 'Category6', 'Category7', 'Category8'];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const nftData = {
+      title: name,
+      description: description,
+      originLink: "somelink",
+      etherscanLink: "someLink",
+      tags: [tags, tags],
+      price: Number(startPrice)
+    };
+
+    const formdata = new FormData();
+    formdata.append('image', imgData);
+    formdata.append('nftData', JSON.stringify(nftData));
+
+    const res = await fetch('http://localhost:5455/nfts/655a62e384cd425c2298b192', {
+      method: 'POST',
+      body: formdata,
+    });
+    const data = await res.json();
+
+  console.log(data);
 
     setName('');
     setCategory('');
     setDescription('');
     setStartPrice('');
     setTags('');
+
   };
+
+
+
+
+
+
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-[30px] w-[400px]

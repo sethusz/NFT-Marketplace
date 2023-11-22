@@ -1,19 +1,27 @@
 'use client'
 
-import { useState } from 'react';
+import { SetStateAction, useState } from 'react';
 import Image from 'next/image';
 import iconAvatar from '@/assets/icon/iconAvatar.svg'
 
-const UploadImage = () => {
+type TProps = {
+	setImgData: React.Dispatch<SetStateAction<FormData | null>>
+}
+
+const UploadImage =  ({setImgData}: TProps) => {
 	const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
 	const handleImageChange = (e: any) => {
 		const file = e.target.files[0];
+		// console.log(file)
+		// setSelectedImage(file)
+		
 		if (file) {
 			const reader = new FileReader();
 			reader.onloadend = () => {
 				if (typeof reader.result === 'string' || reader.result instanceof ArrayBuffer) {
 					setSelectedImage(reader.result as string);
+					setImgData(file)
 				}
 			};
 			reader.readAsDataURL(file);
@@ -46,7 +54,7 @@ const UploadImage = () => {
 
 			{selectedImage && (
 				<div className="w-[300px] h-[300px]">
-					<img src={selectedImage} alt="Preview" className="max-w-full h-auto" />
+					<Image src={selectedImage} alt="Preview" width={300} height={300} className="max-w-full h-auto" />
 				</div>
 			)}
 			</div>

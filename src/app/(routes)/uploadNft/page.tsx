@@ -1,11 +1,18 @@
+'use client'
 
 import Link from 'next/link';
 import UploadForm from './components/uploadForm';
 import UploadImage from './components/uploadImage';
 import arrow from '@/assets/icon/NFTArrowIcon.svg'
 import Image from 'next/image';
+import { useState } from 'react';
 
 const UploadNft = () => {
+
+	const [imgData, setImgData] = useState<FormData | null>(null)
+	const [nftData, setNftData] = useState(null)
+
+
 	return (
 		<div className='w-full'>
 			<Link href='/profile' className='flex gap-[15px] ml-[50px] w-fit
@@ -16,8 +23,8 @@ const UploadNft = () => {
 
 			<div className="mb-[40px] flex justify-center gap-[100px]
 			                max-[900px]:flex-col max-[900px]:items-center">
-				<UploadImage />
-				<UploadForm />
+				<UploadImage setImgData={setImgData}/>
+				<UploadForm imgData={imgData} />
 			</div>
 
 		</div>

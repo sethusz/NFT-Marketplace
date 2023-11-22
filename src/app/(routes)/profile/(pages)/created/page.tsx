@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from "react";
-import FilterAndCards from "../../components/filterAndCards";
+import FilterAndCards from "./componets/filterAndCards";
+
 
 export default function ArtistCreatedPage() {
 

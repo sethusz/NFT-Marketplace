@@ -26,7 +26,7 @@ const FilterAndCards = () => {
 
 	useEffect(() => {
 
-		fetch('http://localhost:5455/nfts/get/655a62e384cd425c2298b192?params=nftCreated')
+		fetch('https://nft-backend-beryl.vercel.app/nfts')
 			.then(async (response) => {
 
 				const data = await response.json();

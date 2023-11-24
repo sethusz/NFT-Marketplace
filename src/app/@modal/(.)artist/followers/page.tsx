@@ -41,16 +41,18 @@ export default async function Followers() {
             />
           </div>
 
-          <div className='flex flex-col gap-[15px]'>
-            {Array(99)
+
+          <div className='flex flex-col gap-[15px] overflow-y-auto h-[300px] custom__scrollbar' >
+            {Array(40)
               .fill(ArtistInfo)
               .map((el: TArtistInfo, i) => (
                 <div key={i} className='flex gap-[20px]'>
                   <Image src={el.avatar} alt='test' className='w-[32px] h-[32px]' />
                   <div className='flex items-center'>{el.name}</div>
-                  </div>
+                </div>
               ))}
           </div>
+
         </div>
       </Modal>
     </>

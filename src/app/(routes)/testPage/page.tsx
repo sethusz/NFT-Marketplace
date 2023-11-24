@@ -14,7 +14,7 @@ export const getData  = async () => {
 		credentials: 'include',
 		headers: {
 			'Content-Type': 'application/json',
-            'Cookie': `token=${token?.value}`, // Set the cookie in the request headers  
+            'Cookie': `token=${token?.value}`, 
 		},
 		cache: 'force-cache',
 	});

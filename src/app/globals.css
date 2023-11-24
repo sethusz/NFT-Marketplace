@@ -26,3 +26,22 @@ body::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
 
+
+.custom__scrollbar::-webkit-scrollbar {
+  width: 10px;
+}
+
+.custom__scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 100px;
+}
+
+.custom__scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 100px;
+}
+
+.custom__scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+

@@ -32,9 +32,10 @@ const UploadForm = ({ imgData }: TProps) => {
     formdata.append('image', imgData);
     formdata.append('nftData', JSON.stringify(nftData));
 
-    const res = await fetch('http://localhost:5455/nfts/655a62e384cd425c2298b192', {
+    const res = await fetch('https://nft-backend-beryl.vercel.app/nfts', {
       method: 'POST',
       body: formdata,
+      credentials: 'include',
     });
     const data = await res.json();
 

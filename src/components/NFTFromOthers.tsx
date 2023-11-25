@@ -19,22 +19,38 @@ interface IContextMenu {
     isOpen: boolean
     x: number;
     y: number;
+}
 
+interface IContextMenuTwo {
+    x: number;
+    y: number;
 }
 
 
 const CardFromOther = ({ img, title, user, price, highest_bid }: Props) => {
     const [contextMenu, setContextMenu] = useState<IContextMenu | null>(null);
+    const [contextMenuTwo, setContextMenuTwo] = useState<IContextMenuTwo | null>(null);
+
 
 
     const handleContextMenu = (event: React.MouseEvent) => {
         event.preventDefault();
-        setContextMenu({ isOpen: true, x: event.clientX + 10, y: event.clientY + -20 });
+
+        if (!contextMenu) {
+            setContextMenu({ isOpen: true, x: event.clientX + 10, y: event.clientY + -20 });
+            setContextMenuTwo({ x: event.clientX + 200, y: event.clientY });
+        }
+
     };
 
     const closeContextMenu = () => {
         setContextMenu(null);
     };
+
+
+    const [imgState, setImgState] = useState(false);
+
+
 
     return (
         <div className='flex flex-col rounded-[20px]  hover:cursor-pointer'>
@@ -43,14 +59,35 @@ const CardFromOther = ({ img, title, user, price, highest_bid }: Props) => {
                 <div className="flex flex-col gap-2">
                     <div className='flex justify-between'>
                         <span className=' text-[22px] text-white font-semibold'>{title}</span>
-                        <Image src={threeDots} alt='dots'
-                            onContextMenu={(e) => handleContextMenu(e)}></Image>
+                        <Image src={threeDots} alt='dots' className='transform transition-transform 
+                                                                    hover:scale-110 hover:cursor-context-menu'
+
+                            onClick={(e) => handleContextMenu(e)} />
 
                         {contextMenu && (
-                            <ContextMenu isOpen={contextMenu.isOpen} onClose={closeContextMenu} x={contextMenu.x} y={contextMenu.y}>
-                                <button >Leave group</button>
+                            <>
+                                <ContextMenu isOpen={contextMenu.isOpen} onClose={closeContextMenu} setImgState={setImgState} 
+                                x={contextMenu.x} y={contextMenu.y}>
 
-                            </ContextMenu>
+                                    <button
+                                       >Add to collection
+                                    </button>
+
+                                </ContextMenu>
+
+                                {imgState && (
+                                    <ContextMenu isOpen={contextMenu.isOpen} onClose={closeContextMenu} setImgState={setImgState}
+                                        x={contextMenuTwo.x} y={contextMenu.y}>
+                                        <div className='flex flex-col'>
+                                            <button>Two</button>
+                                            <button>Two</button>
+                                            <button>Two</button>
+                                            <button>Two</button>
+                                        </div>
+                                    </ContextMenu>
+                                )}
+
+                            </>
                         )}
 
                     </div>

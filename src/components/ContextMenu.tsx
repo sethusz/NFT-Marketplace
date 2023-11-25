@@ -1,31 +1,49 @@
-import React, {FC, useEffect, useRef, useState} from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 
 interface ContextMenuProps {
-  children: React.ReactNode
-  isOpen: boolean,
- onClose: () => void
- x: number,
- y: number
-};
+    children: React.ReactNode;
+    isOpen: boolean;
+    onClose: () => void;
+    x: number;
+    y: number;
+    setImgState: (state: boolean) => void;
+}
 
-export const ContextMenu: FC<ContextMenuProps> = ({x, y, onClose, children, isOpen}) => {
-    const [visible, setVisible] = useState(true);
+export const ContextMenu = ({ x, y, onClose, children, isOpen, setImgState }: ContextMenuProps) => {
     const contextMenuRef = useRef<HTMLDivElement | null>(null);
-
     useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
-            if (contextMenuRef.current && !contextMenuRef.current.contains(event.target as Node)) {
+        const handleContextMenu = (event: MouseEvent) => {
+            event.preventDefault();
+            if (event.button === 2) {
                 onClose();
+            } 
+        };
+
+        const handleClick = (event: MouseEvent) => {
+
+            
+            if (contextMenuRef.current && contextMenuRef.current.contains(event.target as Node)) {
+                console.log('In zone')
+            } 
+            if (!contextMenuRef.current || !contextMenuRef.current.contains(event.target as Node)) {
+                console.log('No zone')
+                // onClose();
             }
+
         };
 
         if (isOpen) {
-            document.addEventListener('click', handleClickOutside);
+            document.addEventListener('contextmenu', handleContextMenu);
+            document.addEventListener('mousedown', handleClick);
 
+            document.body.style.overflow = 'hidden';
         }
 
         return () => {
-            document.removeEventListener('click', handleClickOutside);
+            document.removeEventListener('contextmenu', handleContextMenu);
+            document.removeEventListener('mousedown', handleClick);
+
+            document.body.style.overflow = 'auto';
         };
     }, [onClose, isOpen]);
 
@@ -34,12 +52,18 @@ export const ContextMenu: FC<ContextMenuProps> = ({x, y, onClose, children, isOp
     }
 
     return (
-        <div className='fixed bg-gray-800 mt-10 ml-auto border border-gray-700 shadow-lg 
-                        z-50 rounded p-2 w-48 opacity-100 transition-opacity flex flex-col
-        '
-             ref={contextMenuRef}
-             style={{ top: y, left: x }}>
+        <div
+            className='fixed bg-gray-800 mt-10 ml-auto border border-gray-700 shadow-lg 
+        z-200 rounded p-2 w-48 opacity-100 transition-opacity flex'
+            ref={contextMenuRef}
+            style={{ top: y, left: x }}
+
+            onMouseEnter={() => setImgState(true)}
+            onMouseLeave={() => setImgState(false)}
+        >
             {children}
         </div>
     );
 };
+
+

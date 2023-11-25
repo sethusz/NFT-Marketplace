@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import DiscordLogo from '@/assets/icon/DiscordLogo.svg';
 import TwitterLogo from '@/assets/icon/TwitterLogo.svg';
@@ -7,6 +7,7 @@ import YoutubeLogo from '@/assets/icon/YoutubeLogo.svg';
 import { jwtDecode } from 'jwt-decode';
 import InstagramLogo from '@/assets/icon/InstagramLogo.svg';
 import Link from 'next/link';
+import useAutosizeTextArea from '@/components/useTextAreaHeight';
 
 const getUserData = async () => {
 	const localToken = JSON.stringify(localStorage.getItem('token'));
@@ -33,13 +34,28 @@ const Profile = () => {
 		userName: ''
 	})
 	const id = ['followers'];
-	const [bioText, setBioText] = useState("The internet's friendliest designer kid.");
+	const [bioText, setBioText] = useState<string>('');
+	const textAreaRef = useRef<HTMLTextAreaElement>(null);
 	const buttonStyles = `text-[16px] w-[300px] font-semibold text-center px-[80px] py-[20px] bg-[#A259FF] rounded-[20px]
   shadow-md transition-shadow ease-in-out duration-200 hover:shadow-[0_0_10px_#A239FF]`;
 
-	const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+
+
+	useAutosizeTextArea(textAreaRef.current, bioText);
+
+	const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+
 		setBioText(e.target.value);
 	};
+
+	const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+		if (e.key === 'Enter') {
+			setBioText(e.currentTarget.value);
+			e.preventDefault();
+			textAreaRef.current?.blur();
+		}
+	};
+
 
 
 
@@ -97,14 +113,17 @@ const Profile = () => {
 				<div className='my-[20px]'>
 					<h3 className='text-[#858584] text-[22px]'>Bio</h3>
 					<div className='flex gap-[20px]'>
-						<input
-							type='text'
+
+						<textarea
 							value={bioText}
 							onChange={handleTextChange}
+							onKeyDown={handleKeyDown}
 							placeholder='Enter new text'
-							className='bg-[#3B3B3B] rounded-md p-2 w-[250px]'
-						/>
-						<button onClick={() => setBioText(bioText)}>Change Bio</button>
+							ref={textAreaRef}
+							className='p-[10px] focus:border-b-white
+                          w-[95%] md:w-[550px] text-start overflow-hidden resize-none 
+                          outline-none border pb-3 border-transparent bg-transparent'/>
+
 					</div>
 				</div>
 

@@ -50,9 +50,10 @@ const CardFromOther = ({ img, title, user, price, highest_bid }: Props) => {
 
     const [imgState, setImgState] = useState(false);
 
-
+console.log(imgState)
 
     return (
+        <>
         <div className='flex flex-col rounded-[20px]  hover:cursor-pointer'>
             <Image src={img} alt='nft image' width={330} height={295} className=' object-cover w-[330px] h-[295px] rounded-t-[20px]' />
             <div className="bg-[#2B2B2B] flex flex-col gap-6 rounded-b-[20px] p-[25px]">
@@ -69,6 +70,7 @@ const CardFromOther = ({ img, title, user, price, highest_bid }: Props) => {
                                 <ContextMenu isOpen={contextMenu.isOpen} onClose={closeContextMenu} setImgState={setImgState} 
                                 x={contextMenu.x} y={contextMenu.y}>
 
+
                                     <button
                                        >Add to collection
                                     </button>
@@ -78,6 +80,7 @@ const CardFromOther = ({ img, title, user, price, highest_bid }: Props) => {
                                 {imgState && (
                                     <ContextMenu isOpen={contextMenu.isOpen} onClose={closeContextMenu} setImgState={setImgState}
                                         x={contextMenuTwo.x} y={contextMenu.y}>
+
                                         <div className='flex flex-col'>
                                             <button>Two</button>
                                             <button>Two</button>
@@ -114,6 +117,7 @@ const CardFromOther = ({ img, title, user, price, highest_bid }: Props) => {
                 </div>
             </div>
         </div>
+        </>
     )
 }
 

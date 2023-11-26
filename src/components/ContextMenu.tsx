@@ -3,13 +3,12 @@ import React, { FC, useEffect, useRef, useState } from 'react';
 interface ContextMenuProps {
     children: React.ReactNode;
     isOpen: boolean;
-    onClose: () => void;
-    x: number;
-    y: number;
-    setImgState: (state: boolean) => void;
+    toggleContext: (state: boolean) => void | undefined;
+    isSecond?: boolean;
+    toggleSubContext?: (state: boolean) => void | undefined;
 }
 
-export const ContextMenu = ({ x, y, onClose, children, isOpen, setImgState }: ContextMenuProps) => {
+export const ContextMenu = ({ children, isOpen, toggleContext, isSecond, toggleSubContext}: ContextMenuProps) => {
     const contextMenuRef = useRef<HTMLDivElement | null>(null);
     // useEffect(() => {
     //     const handleContextMenu = (event: MouseEvent) => {
@@ -49,22 +48,24 @@ export const ContextMenu = ({ x, y, onClose, children, isOpen, setImgState }: Co
         return null;
     }
 
+
+
     return (
         <>
-        <div className='fixed inset-0'
-        onClick={onClose}></div>
-        
-                <div
-                    className='fixed bg-gray-800 mt-10 ml-auto border border-gray-700 shadow-lg 
-        z-200 rounded p-2 w-48 opacity-100 transition-opacity flex'
-                    ref={contextMenuRef}
-                    style={{ top: y, left: x }}
+            <div className='fixed inset-0'
+                onClick={() => toggleContext(false)}></div>
+            <div
+                className={`absolute top-0 left-0 bg-gray-800 mt-10 ml-auto border border-gray-700 shadow-lg 
+        z-200 rounded p-2 w-48 opacity-100 transition-opacity flex ${isSecond ? 'left-[190px]' : ''}`}
+                ref={contextMenuRef}
 
-                    onMouseEnter={() => setImgState(true)}
-                    onMouseLeave={() => setImgState(false)}
-                >
-                    {children}
-                </div>
+                onMouseEnter={() => {!isSecond && toggleSubContext && toggleSubContext(true) 
+                                    console.log('test')}}
+                onMouseLeave={() => isSecond && toggleContext && toggleContext(false)}
+
+            >
+                {children}
+            </div>
         </>
     );
 };

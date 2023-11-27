@@ -1,4 +1,5 @@
 'use client'
+import { jwtDecode } from 'jwt-decode';
 import { SetStateAction, useState } from 'react';
 
 
@@ -19,6 +20,9 @@ const UploadForm = ({ imgData }: TProps) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    const localToken = JSON.stringify(localStorage.getItem('token'));
+    const { _id } = jwtDecode(localToken) as { _id: string };
+
     const nftData = {
       title: name,
       description: description,
@@ -30,9 +34,9 @@ const UploadForm = ({ imgData }: TProps) => {
 
     const formdata = new FormData();
     formdata.append('image', imgData);
-    formdata.append('nftData', JSON.stringify(nftData));
+    formdata.append('nftData', JSON.stringify({...nftData, owner: _id}));
 
-    const res = await fetch('https://nft-backend-beryl.vercel.app/nfts', {
+    const res = await fetch(`https://nft-backend-beryl.vercel.app/nfts/${_id}`, {
       method: 'POST',
       body: formdata,
       credentials: 'include',

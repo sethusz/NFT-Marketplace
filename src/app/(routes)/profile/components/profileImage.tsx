@@ -1,32 +1,68 @@
 'use client';
 import Image from 'next/image';
-import { useRef, useState, ChangeEvent } from 'react';
+import { useRef, useState, ChangeEvent, SetStateAction, useLayoutEffect, useEffect } from 'react';
 import imgArtistPlaceHolder from '@/assets/imgArtistPlaceHolder.png'
 import iconNoProfile from '@/assets/icon/iconNoProfile.svg'
+
+import axios from 'axios';
+import { jwtDecode } from 'jwt-decode';
+
+
 
 export default function ProfileImage() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const filePicker = useRef<HTMLInputElement>(null);
 
-  const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
+  //fix it
+  const localToken = JSON.stringify(localStorage.getItem('token'));
+	const { _id } = jwtDecode(localToken) as { _id: string };
 
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        if (typeof reader.result === 'string') {
-          setSelectedImage(reader.result);
-        }
-      };
-      reader.readAsDataURL(file);
-    }
-  };
+
+
+	const handleImageChange = (e: any) => {
+		const file = e.target.files[0];
+		// console.log(file)
+		// setSelectedImage(file)
+
+		if (file) {
+			const reader = new FileReader();
+			reader.onloadend = () => {
+				if (typeof reader.result === 'string' || reader.result instanceof ArrayBuffer) {
+          const privet = new FormData()
+          privet.append('avatar', file)
+          axios.patch(`https://nft-backend-beryl.vercel.app/user/photo/${_id}`, privet)
+          .then((res) => console.log(res))
+          .catch((err) => console.log(err))
+					setSelectedImage(reader.result as string);
+
+				}
+			};
+			reader.readAsDataURL(file);
+		}
+	};
 
   const handlePick = () => {
-    if (filePicker.current) {
-      filePicker.current.click();
+		//@ts-ignore
+		filePicker.current.click();
+	};
+
+// fix it
+  useEffect(() => {
+    const userid = _id
+
+    
+
+    if (userid) {
+      axios.get(`https://nft-backend-beryl.vercel.app/user/${userid}`)
+      .then((res) => {
+        console.log(res)
+        return setSelectedImage(res.data.data.avatarUrl)
+      })
+      .catch((err) => console.log(err))
     }
-  };
+    
+  }, [])
+
 
   return (
     <>
@@ -40,7 +76,7 @@ export default function ProfileImage() {
             alt='avatar'
             width={120}
             height={120}
-            className='bottom-[-15%] left-[100px] absolute rounded-full object-cover
+            className='bottom-[-15%] left-[100px] absolute rounded-full object-contain
                                   max-[800px]:left-[30px]
                                   max-[600px]:w-[100px] max-[600px]:h-[100px]
                                   max-[600px]:bottom-[-35%]

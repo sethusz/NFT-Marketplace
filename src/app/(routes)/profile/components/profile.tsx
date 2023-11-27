@@ -70,7 +70,7 @@ const Profile = () => {
 			<div className='ml-[30px]'>
 				<div className='flex justify-between max-[800px]:flex-col'>
 					<h1 className='text-[51px]  font-semibold max-[1100px]:text-[38px] max-[600px]:text-[28px]'>
-						{userData.userName ? userData.userName : 'Loading...'}
+						{/* {userData.userName ? userData.userName : 'Loading...'} */}
 					</h1>
 
 					<div className='flex flex-col p-[15px] rounded-[20px] h-fit'>

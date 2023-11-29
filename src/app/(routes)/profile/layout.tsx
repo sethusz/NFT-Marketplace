@@ -9,6 +9,8 @@ import ProfileNft from "./components/profileNft";
 export default function Layout(props: { children: React.ReactNode }) {
 
 
+
+
   return (
 
     <div className='w-full text-[22px]'>

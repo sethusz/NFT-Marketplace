@@ -18,7 +18,6 @@ export default function ProfileImage() {
 	const { _id } = jwtDecode(localToken) as { _id: string };
 
 
-
 	const handleImageChange = (e: any) => {
 		const file = e.target.files[0];
 		// console.log(file)
@@ -62,6 +61,9 @@ export default function ProfileImage() {
     }
     
   }, [])
+
+  console.log('image')
+
 
 
   return (

@@ -27,6 +27,7 @@ export default function ProfileNft() {
    border-transparent items-center flex justify-center`;
 
 
+   console.log('nft')
 
   return (
     <>

@@ -21,6 +21,9 @@ const FilterAndCards = () => {
 		}
 	}, [width]);
 
+
+	console.log('filter')
+
 	return (
 		<>
 			<div className='mx-0 md:mx-16 lg:mx-28'>

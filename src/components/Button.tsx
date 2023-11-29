@@ -4,18 +4,21 @@ import React from 'react'
 type Props = {
     title: string,
     styles?: string,
+    stylesTitle?: string
+    iconStyles? : string,
     icon: string,
 
 }
 
-const Button = ({title, styles, icon}: Props) => {
+const Button = ({title, styles, stylesTitle,  icon, iconStyles}: Props) => {
 
-    const baseStyles = ` bg-[##A259FF] flex items-center justify-center gap-3 rounded-md  ${styles}`
-
+    const baseStyles = `flex items-center justify-center gap-3 rounded-[20px] group  ${styles}`
+    const iconStyle = `w-[20px] h-[20px] ${iconStyles}`
+    const titleStyle = stylesTitle ? stylesTitle : "text-white";
   return (
     <button className={baseStyles}>
-        <Image src={icon} width={20} height={20} alt='icon'/>
-        <span className=' text-white'>{title}</span>
+        <Image src={icon}  alt='icon' className={iconStyle}/>
+        <span className={titleStyle}>{title}</span>
     </button>
   )
 }
